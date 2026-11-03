@@ -1,0 +1,178 @@
+/* ==========================================================================
+   SyntaxGuard · Componentes reutilizables
+   ========================================================================== */
+
+/* ---- Foco visible global ---- */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--c-primario);
+  outline-offset: 2px;
+}
+.lateral a:focus-visible { outline-color: #8f9dff; }
+
+/* ---- Marca ---- */
+.marca { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.marca svg { flex: none; }
+
+/* ---- Navegación lateral ---- */
+.lateral__etiqueta { margin: 8px 8px 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-lateral-tenue); }
+.nav { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.nav__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--c-lateral-texto);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav__item:hover { background: var(--c-lateral-hover); color: #fff; }
+.nav__item[aria-current="page"] { background: var(--c-lateral-activo); color: #fff; }
+.nav__item svg { flex: none; }
+
+.pie__titulo { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-lateral-tenue); }
+.pie__linea { margin-top: 4px; font-size: 12px; color: var(--c-lateral-texto); overflow-wrap: anywhere; }
+
+/* ---- Chips y estado ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--c-superficie-2);
+  color: var(--c-texto-2);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.chip__punto { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chip--ok { background: var(--c-ok-fondo); color: var(--c-ok); }
+.chip--aviso { background: var(--c-aviso-fondo); color: var(--c-aviso); }
+.chip--error { background: var(--c-spam-fondo); color: var(--c-spam); }
+.chip--neutro { background: var(--c-superficie-2); color: var(--c-texto-2); }
+
+/* ---- Botones ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn--primario { background: var(--c-primario); color: #fff; }
+.btn--primario:hover:not(:disabled) { background: var(--c-primario-hover); }
+.btn--secundario { background: var(--c-superficie); border-color: var(--c-borde); color: var(--c-texto); }
+.btn--secundario:hover:not(:disabled) { background: var(--c-superficie-2); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ---- Tarjetas ---- */
+.tarjeta {
+  padding: 22px 24px;
+  background: var(--c-superficie);
+  border: 1px solid var(--c-borde);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-tarjeta);
+}
+.tarjeta__titulo { font-size: 16px; font-weight: 600; }
+.tarjeta__texto { margin-top: 4px; color: var(--c-texto-3); }
+
+/* ---- Indicador de pasos ---- */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 22px 0 24px;
+  padding: 14px 22px;
+  list-style: none;
+  background: var(--c-superficie);
+  border: 1px solid var(--c-borde);
+  border-radius: var(--radio-m);
+}
+.paso { display: flex; align-items: center; gap: 10px; color: var(--c-texto-3); font-size: 14px; }
+.paso__num {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--c-superficie-2);
+  color: var(--c-texto-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.paso__flecha { color: #9aa0ae; }
+.paso--hecho .paso__num { background: var(--c-primario-suave); color: var(--c-primario); }
+.paso--actual { color: var(--c-primario); font-weight: 600; }
+.paso--actual .paso__num { background: var(--c-primario); color: #fff; }
+
+@media (max-width: 720px) {
+  .stepper { padding: 12px 14px; }
+  .paso:not(.paso--actual) .paso__txt { display: none; }
+  .paso__flecha { display: none; }
+}
+
+/* ---- Avisos ---- */
+.aviso {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--c-borde);
+  border-radius: var(--radio-m);
+  background: var(--c-superficie-2);
+  font-size: 13px;
+}
+.aviso--aviso { background: var(--c-aviso-fondo); border-color: var(--c-aviso-borde); color: var(--c-aviso); }
+.aviso--error { background: var(--c-spam-fondo); border-color: var(--c-spam-borde); color: var(--c-spam); }
+.aviso svg { flex: none; margin-top: 1px; }
+
+/* ---- Estado "en construcción" ---- */
+.pendiente { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+
+/* ---- Lista de verificación de conexión ---- */
+.verif { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--c-borde-suave); }
+.verif__fila {
+  display: grid;
+  grid-template-columns: minmax(150px, auto) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--c-borde-suave);
+}
+.verif__fila code { font-family: var(--fuente-mono); font-size: 12.5px; padding: 2px 7px; border-radius: 5px; background: var(--c-superficie-2); }
+.verif__detalle { min-width: 0; color: var(--c-texto-2); font-size: 13px; overflow-wrap: anywhere; }
+.verif__acciones { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+
+@media (max-width: 640px) {
+  .verif__fila { grid-template-columns: minmax(0, 1fr) auto; }
+  .verif__detalle { grid-column: 1 / -1; order: 3; }
+}
+
+/* ---- Indicador de carga ---- */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d6d9e6;
+  border-top-color: var(--c-primario);
+  border-radius: 50%;
+  animation: giro 0.8s linear infinite;
+}
+@keyframes giro { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.8s !important; } }
+
+.solo-lectores { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Título que sigue a un chip dentro de una tarjeta */
+.chip + .tarjeta__titulo { margin-top: 10px; }

@@ -1,0 +1,85 @@
+[OK]   [escritorio] La raíz redirige a #/analisis — #/analisis
+[OK]   [escritorio] Chip de la API indica modelo cargado — Modelo cargado
+[OK]   [escritorio] Pie muestra versión de la API — API v1.0.0
+[OK]   [escritorio] 5 elementos de menú — 5
+[OK]   [escritorio] Navega a analisis: título 'Analizar correo'
+[OK]   [escritorio] analisis: ítem activo marcado (aria-current)
+[OK]   [escritorio] analisis: <title> del documento — Analizar correo · SyntaxGuard
+[OK]   [escritorio] analisis: hay indicador de pasos o espacio
+[OK]   [escritorio] analisis: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [escritorio] Análisis: /salud y /metricas conectados — GET /salud estado: ok · modelo_cargado: true Conectado | GET /metricas RandomForestClassifier · 2.000 filas de entrenamiento · F1 en prueba: 0,9407 Conectado | POST /predecir Envía un mensaje fijo de ejemplo; no guarda nada. Sin probar
+[OK]   [escritorio] Análisis: muestra 2.000 filas y F1 0,9407 reales de metricas.json
+[OK]   [escritorio] Análisis: /predecir responde desde la interfaz — POST /predecir es_spam: sí · probabilidad 81,7 % · 8 rasgos devueltos Conectado
+[OK]   [escritorio] Navega a historial: título 'Historial de análisis'
+[OK]   [escritorio] historial: ítem activo marcado (aria-current)
+[OK]   [escritorio] historial: <title> del documento — Historial de análisis · SyntaxGuard
+[OK]   [escritorio] historial: hay indicador de pasos o espacio
+[OK]   [escritorio] historial: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [escritorio] Navega a metricas: título 'Métricas del modelo'
+[OK]   [escritorio] metricas: ítem activo marcado (aria-current)
+[OK]   [escritorio] metricas: <title> del documento — Métricas del modelo · SyntaxGuard
+[OK]   [escritorio] metricas: hay indicador de pasos o espacio
+[OK]   [escritorio] metricas: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [escritorio] Navega a retroalimentacion: título 'Retroalimentación'
+[OK]   [escritorio] retroalimentacion: ítem activo marcado (aria-current)
+[OK]   [escritorio] retroalimentacion: <title> del documento — Retroalimentación · SyntaxGuard
+[OK]   [escritorio] retroalimentacion: hay indicador de pasos o espacio
+[OK]   [escritorio] retroalimentacion: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [escritorio] Navega a acerca: título 'Acerca de SyntaxGuard'
+[OK]   [escritorio] acerca: ítem activo marcado (aria-current)
+[OK]   [escritorio] acerca: <title> del documento — Acerca de SyntaxGuard · SyntaxGuard
+[OK]   [escritorio] acerca: hay indicador de pasos o espacio
+[OK]   [escritorio] acerca: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [escritorio] Enlace directo #/metricas abre Métricas
+[OK]   [escritorio] Ruta inexistente vuelve a #/analisis
+[OK]   [escritorio] Botones atrás/adelante no rompen la app
+[OK]   [escritorio] Sin errores/avisos de consola ni peticiones fallidas
+[OK]   [escritorio] Ninguna respuesta HTTP >= 400 — []
+[OK]   [escritorio] Con la API caída el chip dice 'API sin conexión' — API sin conexión
+[OK]   [escritorio] Con la API caída el pie dice versión desconocida
+[OK]   [escritorio] Con la API caída la vista Análisis muestra errores legibles
+[OK]   [movil] La raíz redirige a #/analisis — #/analisis
+[OK]   [movil] Chip de la API indica modelo cargado — Modelo cargado
+[OK]   [movil] Pie muestra versión de la API — API v1.0.0
+[OK]   [movil] 5 elementos de menú — 5
+[OK]   [movil] Navega a analisis: título 'Analizar correo'
+[OK]   [movil] analisis: ítem activo marcado (aria-current)
+[OK]   [movil] analisis: <title> del documento — Analizar correo · SyntaxGuard
+[OK]   [movil] analisis: hay indicador de pasos o espacio
+[OK]   [movil] analisis: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [movil] Análisis: /salud y /metricas conectados — GET /salud estado: ok · modelo_cargado: true Conectado | GET /metricas RandomForestClassifier · 2.000 filas de entrenamiento · F1 en prueba: 0,9407 Conectado | POST /predecir Envía un mensaje fijo de ejemplo; no guarda nada. Sin probar
+[OK]   [movil] Análisis: muestra 2.000 filas y F1 0,9407 reales de metricas.json
+[OK]   [movil] Análisis: /predecir responde desde la interfaz — POST /predecir es_spam: sí · probabilidad 81,7 % · 8 rasgos devueltos Conectado
+[OK]   [movil] Navega a historial: título 'Historial de análisis'
+[OK]   [movil] historial: ítem activo marcado (aria-current)
+[OK]   [movil] historial: <title> del documento — Historial de análisis · SyntaxGuard
+[OK]   [movil] historial: hay indicador de pasos o espacio
+[OK]   [movil] historial: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [movil] Navega a metricas: título 'Métricas del modelo'
+[OK]   [movil] metricas: ítem activo marcado (aria-current)
+[OK]   [movil] metricas: <title> del documento — Métricas del modelo · SyntaxGuard
+[OK]   [movil] metricas: hay indicador de pasos o espacio
+[OK]   [movil] metricas: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [movil] Navega a retroalimentacion: título 'Retroalimentación'
+[OK]   [movil] retroalimentacion: ítem activo marcado (aria-current)
+[OK]   [movil] retroalimentacion: <title> del documento — Retroalimentación · SyntaxGuard
+[OK]   [movil] retroalimentacion: hay indicador de pasos o espacio
+[OK]   [movil] retroalimentacion: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [movil] Navega a acerca: título 'Acerca de SyntaxGuard'
+[OK]   [movil] acerca: ítem activo marcado (aria-current)
+[OK]   [movil] acerca: <title> del documento — Acerca de SyntaxGuard · SyntaxGuard
+[OK]   [movil] acerca: hay indicador de pasos o espacio
+[OK]   [movil] acerca: sin desplazamiento horizontal de la página — desborde=0px
+[OK]   [movil] Enlace directo #/metricas abre Métricas
+[OK]   [movil] Ruta inexistente vuelve a #/analisis
+[OK]   [movil] Botones atrás/adelante no rompen la app
+[OK]   [movil] Sin errores/avisos de consola ni peticiones fallidas
+[OK]   [movil] Ninguna respuesta HTTP >= 400 — []
+[OK]   [movil] Con la API caída el chip dice 'API sin conexión' — API sin conexión
+[OK]   [movil] Con la API caída el pie dice versión desconocida
+[OK]   [movil] Con la API caída la vista Análisis muestra errores legibles
+[OK]   GET /docs sigue funcionando — 200
+[OK]   GET /salud en el navegador
+[OK]   GET /metricas en el navegador
+
+Total: 83 comprobaciones · 83 correctas · 0 con falla

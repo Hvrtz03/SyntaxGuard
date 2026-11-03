@@ -1,0 +1,7 @@
+[OK] Endpoints originales registrados: /salud, /metricas, /predecir
+[OK] /salud, /metricas y /predecir responden igual que antes
+[OK] GET / sirve la interfaz
+[OK] 14 archivos estáticos servidos con el tipo MIME correcto
+[OK] Todas las importaciones entre módulos JS existen
+[OK] /static no permite salir de la carpeta frontend/
+Prueba de humo del frontend superada.

@@ -1,0 +1,3 @@
+[OK] Detector: predicción con formato correcto
+[OK] API: /salud, /predecir, /metricas
+Prueba de humo superada.

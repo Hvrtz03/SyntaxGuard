@@ -1,0 +1,417 @@
+[
+  {
+    "prueba": "[escritorio] La raíz redirige a #/analisis",
+    "ok": true,
+    "detalle": "#/analisis"
+  },
+  {
+    "prueba": "[escritorio] Chip de la API indica modelo cargado",
+    "ok": true,
+    "detalle": "Modelo cargado"
+  },
+  {
+    "prueba": "[escritorio] Pie muestra versión de la API",
+    "ok": true,
+    "detalle": "API v1.0.0"
+  },
+  {
+    "prueba": "[escritorio] 5 elementos de menú",
+    "ok": true,
+    "detalle": "5"
+  },
+  {
+    "prueba": "[escritorio] Navega a analisis: título 'Analizar correo'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] analisis: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] analisis: <title> del documento",
+    "ok": true,
+    "detalle": "Analizar correo · SyntaxGuard"
+  },
+  {
+    "prueba": "[escritorio] analisis: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] analisis: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[escritorio] Análisis: /salud y /metricas conectados",
+    "ok": true,
+    "detalle": "GET /salud estado: ok · modelo_cargado: true Conectado | GET /metricas RandomForestClassifier · 2.000 filas de entrenamiento · F1 en prueba: 0,9407 Conectado | POST /predecir Envía un mensaje fijo de ejemplo; no guarda nada. Sin probar"
+  },
+  {
+    "prueba": "[escritorio] Análisis: muestra 2.000 filas y F1 0,9407 reales de metricas.json",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Análisis: /predecir responde desde la interfaz",
+    "ok": true,
+    "detalle": "POST /predecir es_spam: sí · probabilidad 81,7 % · 8 rasgos devueltos Conectado"
+  },
+  {
+    "prueba": "[escritorio] Navega a historial: título 'Historial de análisis'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] historial: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] historial: <title> del documento",
+    "ok": true,
+    "detalle": "Historial de análisis · SyntaxGuard"
+  },
+  {
+    "prueba": "[escritorio] historial: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] historial: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[escritorio] Navega a metricas: título 'Métricas del modelo'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] metricas: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] metricas: <title> del documento",
+    "ok": true,
+    "detalle": "Métricas del modelo · SyntaxGuard"
+  },
+  {
+    "prueba": "[escritorio] metricas: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] metricas: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[escritorio] Navega a retroalimentacion: título 'Retroalimentación'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] retroalimentacion: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] retroalimentacion: <title> del documento",
+    "ok": true,
+    "detalle": "Retroalimentación · SyntaxGuard"
+  },
+  {
+    "prueba": "[escritorio] retroalimentacion: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] retroalimentacion: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[escritorio] Navega a acerca: título 'Acerca de SyntaxGuard'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] acerca: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] acerca: <title> del documento",
+    "ok": true,
+    "detalle": "Acerca de SyntaxGuard · SyntaxGuard"
+  },
+  {
+    "prueba": "[escritorio] acerca: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] acerca: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[escritorio] Enlace directo #/metricas abre Métricas",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Ruta inexistente vuelve a #/analisis",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Botones atrás/adelante no rompen la app",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Sin errores/avisos de consola ni peticiones fallidas",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Ninguna respuesta HTTP >= 400",
+    "ok": true,
+    "detalle": "[]"
+  },
+  {
+    "prueba": "[escritorio] Con la API caída el chip dice 'API sin conexión'",
+    "ok": true,
+    "detalle": "API sin conexión"
+  },
+  {
+    "prueba": "[escritorio] Con la API caída el pie dice versión desconocida",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[escritorio] Con la API caída la vista Análisis muestra errores legibles",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] La raíz redirige a #/analisis",
+    "ok": true,
+    "detalle": "#/analisis"
+  },
+  {
+    "prueba": "[movil] Chip de la API indica modelo cargado",
+    "ok": true,
+    "detalle": "Modelo cargado"
+  },
+  {
+    "prueba": "[movil] Pie muestra versión de la API",
+    "ok": true,
+    "detalle": "API v1.0.0"
+  },
+  {
+    "prueba": "[movil] 5 elementos de menú",
+    "ok": true,
+    "detalle": "5"
+  },
+  {
+    "prueba": "[movil] Navega a analisis: título 'Analizar correo'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] analisis: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] analisis: <title> del documento",
+    "ok": true,
+    "detalle": "Analizar correo · SyntaxGuard"
+  },
+  {
+    "prueba": "[movil] analisis: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] analisis: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[movil] Análisis: /salud y /metricas conectados",
+    "ok": true,
+    "detalle": "GET /salud estado: ok · modelo_cargado: true Conectado | GET /metricas RandomForestClassifier · 2.000 filas de entrenamiento · F1 en prueba: 0,9407 Conectado | POST /predecir Envía un mensaje fijo de ejemplo; no guarda nada. Sin probar"
+  },
+  {
+    "prueba": "[movil] Análisis: muestra 2.000 filas y F1 0,9407 reales de metricas.json",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Análisis: /predecir responde desde la interfaz",
+    "ok": true,
+    "detalle": "POST /predecir es_spam: sí · probabilidad 81,7 % · 8 rasgos devueltos Conectado"
+  },
+  {
+    "prueba": "[movil] Navega a historial: título 'Historial de análisis'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] historial: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] historial: <title> del documento",
+    "ok": true,
+    "detalle": "Historial de análisis · SyntaxGuard"
+  },
+  {
+    "prueba": "[movil] historial: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] historial: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[movil] Navega a metricas: título 'Métricas del modelo'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] metricas: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] metricas: <title> del documento",
+    "ok": true,
+    "detalle": "Métricas del modelo · SyntaxGuard"
+  },
+  {
+    "prueba": "[movil] metricas: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] metricas: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[movil] Navega a retroalimentacion: título 'Retroalimentación'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] retroalimentacion: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] retroalimentacion: <title> del documento",
+    "ok": true,
+    "detalle": "Retroalimentación · SyntaxGuard"
+  },
+  {
+    "prueba": "[movil] retroalimentacion: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] retroalimentacion: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[movil] Navega a acerca: título 'Acerca de SyntaxGuard'",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] acerca: ítem activo marcado (aria-current)",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] acerca: <title> del documento",
+    "ok": true,
+    "detalle": "Acerca de SyntaxGuard · SyntaxGuard"
+  },
+  {
+    "prueba": "[movil] acerca: hay indicador de pasos o espacio",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] acerca: sin desplazamiento horizontal de la página",
+    "ok": true,
+    "detalle": "desborde=0px"
+  },
+  {
+    "prueba": "[movil] Enlace directo #/metricas abre Métricas",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Ruta inexistente vuelve a #/analisis",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Botones atrás/adelante no rompen la app",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Sin errores/avisos de consola ni peticiones fallidas",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Ninguna respuesta HTTP >= 400",
+    "ok": true,
+    "detalle": "[]"
+  },
+  {
+    "prueba": "[movil] Con la API caída el chip dice 'API sin conexión'",
+    "ok": true,
+    "detalle": "API sin conexión"
+  },
+  {
+    "prueba": "[movil] Con la API caída el pie dice versión desconocida",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "[movil] Con la API caída la vista Análisis muestra errores legibles",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "GET /docs sigue funcionando",
+    "ok": true,
+    "detalle": "200"
+  },
+  {
+    "prueba": "GET /salud en el navegador",
+    "ok": true,
+    "detalle": ""
+  },
+  {
+    "prueba": "GET /metricas en el navegador",
+    "ok": true,
+    "detalle": ""
+  }
+]

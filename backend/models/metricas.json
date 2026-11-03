@@ -1,0 +1,132 @@
+{
+  "modelo": "RandomForestClassifier",
+  "clase_positiva": "spam",
+  "balanceo": "class_weight=balanced_subsample",
+  "hiperparametros": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "class_weight": "balanced_subsample",
+    "random_state": 42
+  },
+  "dataset": {
+    "archivo": "dataset.csv",
+    "filas_utilizadas": 2000,
+    "spam": 802,
+    "ham": 1198,
+    "particion": {
+      "train": 1400,
+      "validacion": 300,
+      "test": 300
+    }
+  },
+  "validacion": {
+    "n_muestras": 300,
+    "accuracy": 0.96,
+    "precision": 0.9655,
+    "recall": 0.9333,
+    "f1": 0.9492,
+    "matriz_confusion": {
+      "tn": 176,
+      "fp": 4,
+      "fn": 8,
+      "tp": 112
+    },
+    "matriz_confusion_lista": [
+      [
+        176,
+        4
+      ],
+      [
+        8,
+        112
+      ]
+    ]
+  },
+  "test": {
+    "n_muestras": 300,
+    "accuracy": 0.9533,
+    "precision": 0.9652,
+    "recall": 0.9174,
+    "f1": 0.9407,
+    "matriz_confusion": {
+      "tn": 175,
+      "fp": 4,
+      "fn": 10,
+      "tp": 111
+    },
+    "matriz_confusion_lista": [
+      [
+        175,
+        4
+      ],
+      [
+        10,
+        111
+      ]
+    ]
+  },
+  "importancia_rasgos": [
+    {
+      "rasgo": "txt_ratio_spam",
+      "importancia": 0.1569
+    },
+    {
+      "rasgo": "txt_n_spam",
+      "importancia": 0.1395
+    },
+    {
+      "rasgo": "dom_presente",
+      "importancia": 0.0826
+    },
+    {
+      "rasgo": "dom_n_nodos",
+      "importancia": 0.0662
+    },
+    {
+      "rasgo": "dom_profundidad",
+      "importancia": 0.0629
+    },
+    {
+      "rasgo": "dep_ratio_imperativas",
+      "importancia": 0.0495
+    },
+    {
+      "rasgo": "txt_exclamaciones",
+      "importancia": 0.0491
+    },
+    {
+      "rasgo": "txt_mayusculas",
+      "importancia": 0.0418
+    },
+    {
+      "rasgo": "dom_distancia_ref",
+      "importancia": 0.04
+    },
+    {
+      "rasgo": "pos_sustantivos",
+      "importancia": 0.0391
+    },
+    {
+      "rasgo": "dom_ratio_enlaces",
+      "importancia": 0.0346
+    },
+    {
+      "rasgo": "txt_monedas",
+      "importancia": 0.0262
+    },
+    {
+      "rasgo": "pos_pronombres",
+      "importancia": 0.0253
+    },
+    {
+      "rasgo": "url_long_max",
+      "importancia": 0.0197
+    },
+    {
+      "rasgo": "txt_longitud",
+      "importancia": 0.017
+    }
+  ],
+  "fecha_entrenamiento": "2026-10-23T01:03:34"
+}

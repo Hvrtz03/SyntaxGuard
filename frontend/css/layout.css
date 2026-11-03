@@ -1,0 +1,119 @@
+/* ==========================================================================
+   SyntaxGuard · Estructura de página (lateral + barra superior + contenido)
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--c-texto);
+  background: var(--c-fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+.saltar {
+  position: absolute;
+  left: 12px;
+  top: -56px;
+  z-index: 100;
+  padding: 8px 14px;
+  border-radius: var(--radio-s);
+  background: var(--c-primario);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.saltar:focus { top: 12px; }
+
+.app {
+  display: grid;
+  grid-template-columns: var(--ancho-lateral) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+/* ---- Lateral ---- */
+.lateral {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 14px 18px;
+  background: var(--c-lateral);
+  color: var(--c-lateral-texto);
+}
+.lateral__cabecera { display: flex; align-items: center; height: var(--alto-topbar); padding: 0 8px; }
+.lateral__grupo { flex: 1; }
+.lateral__pie { padding: 0 8px; }
+
+/* ---- Columna principal ---- */
+.principal { display: flex; flex-direction: column; min-width: 0; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: var(--alto-topbar);
+  padding: 0 28px;
+  background: var(--c-superficie);
+  border-bottom: 1px solid var(--c-borde);
+}
+.topbar__migas { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 13px; color: var(--c-texto-3); }
+.topbar__migas strong { color: var(--c-texto); font-weight: 600; }
+.topbar__acciones { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--c-texto-3); }
+.topbar__separador { width: 1px; height: 22px; background: var(--c-borde); }
+
+.contenido {
+  width: 100%;
+  max-width: var(--ancho-contenido);
+  padding: 30px 28px 56px;
+  outline: none;
+}
+.contenido[aria-busy="true"] { opacity: 0.65; transition: opacity 0.15s; }
+
+/* ---- Encabezado de página ---- */
+.pagina__titulo { font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; outline: none; }
+.pagina__sub { margin-top: 6px; max-width: 110ch; color: var(--c-texto-3); font-size: 14px; }
+
+/* ---- Rejillas de contenido ---- */
+.rejilla { display: grid; gap: 20px; }
+.rejilla--2 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+/* ---- Adaptación a pantallas pequeñas ---- */
+@media (max-width: 1000px) {
+  .rejilla--2 { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .lateral {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    height: auto;
+    padding: 8px 14px;
+    overflow-x: auto;
+  }
+  .lateral__cabecera { height: auto; padding: 0; flex: none; }
+  .lateral__grupo { flex: none; }
+  .lateral__grupo .nav { flex-direction: row; gap: 2px; }
+  .lateral__etiqueta, .lateral__pie { display: none; }
+  .topbar { height: auto; min-height: 56px; padding: 10px 16px; flex-wrap: wrap; }
+  .contenido { padding: 22px 16px 40px; }
+  .pagina__titulo { font-size: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Separación cuando una página no lleva indicador de pasos */
+.pagina__espacio { height: 22px; }

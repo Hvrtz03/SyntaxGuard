@@ -1,0 +1,56 @@
+/* ==========================================================================
+   SyntaxGuard · Tokens de diseño
+   Valores tomados del prototipo (Prototipo.pdf): lateral oscuro, lienzo claro,
+   acento índigo y rojo/verde semánticos para SPAM / LEGÍTIMO.
+   ========================================================================== */
+:root {
+  /* Tipografía: Inter si está instalada; si no, la fuente del sistema (sin descargas externas) */
+  --fuente: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fuente-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Superficies */
+  --c-fondo: #fafafa;
+  --c-superficie: #ffffff;
+  --c-superficie-2: #f4f5f8;
+  --c-borde: #e4e6eb;
+  --c-borde-suave: #eef0f3;
+
+  /* Texto */
+  --c-texto: #1b1f2e;
+  --c-texto-2: #4a5062;
+  --c-texto-3: #636a7c;
+
+  /* Acento */
+  --c-primario: #4f63e6;
+  --c-primario-hover: #4153d6;
+  --c-primario-suave: #eceefd;
+
+  /* Barra lateral */
+  --c-lateral: #0f1117;
+  --c-lateral-activo: #1d2340;
+  --c-lateral-hover: rgba(255, 255, 255, 0.06);
+  --c-lateral-texto: #aab0c2;
+  --c-lateral-tenue: #8a90a4;
+
+  /* Semánticos */
+  --c-spam: #b3202f;
+  --c-spam-fondo: #fdecee;
+  --c-spam-borde: #f3c4ca;
+  --c-ok: #17653a;
+  --c-ok-fondo: #e7f6ec;
+  --c-ok-borde: #bfe3cc;
+  --c-aviso: #7d5208;
+  --c-aviso-fondo: #fff6e0;
+  --c-aviso-borde: #f0d9a2;
+
+  /* Formas */
+  --radio-s: 6px;
+  --radio-m: 10px;
+  --radio-l: 14px;
+  --sombra-tarjeta: 0 1px 2px rgba(16, 24, 40, 0.04);
+
+  /* Medidas de la estructura */
+  --ancho-lateral: 210px;
+  --alto-topbar: 72px;
+  --ancho-contenido: 1240px;
+}
