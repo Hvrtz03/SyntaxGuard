@@ -1,0 +1,86 @@
+[OK]    1. El menú lateral tiene 6 secciones, incluida «Análisis masivo»
+[OK]    1. El indicador de la API muestra «Modelo cargado»
+[OK]    1. La sección Análisis está activa al abrir
+[OK]    2. La vista previa muestra el asunto extraído
+[OK]    3. Resultado: muestra SPAM o LEGÍTIMO
+[OK]    3. Resultado: probabilidad con punto decimal (es-MX) y «%»
+[OK]    3. Resultado: chip «Guardado» en el historial
+[OK]    3. Evidencias: las 4 pestañas (rasgos, texto, enlaces, estructura) abren su panel
+[OK]    3. Evidencias: el enlace acortador se muestra en la pestaña Enlaces
+[OK]    3. El detalle guardado muestra el dominio del enlace
+[OK]    3. D1: el detalle NO muestra la URL completa ni el cuerpo
+[OK]    10. Al volver a Análisis se conserva el resultado (estado entre secciones)
+[OK]    4. Archivos agregados: se listan los 3 .eml y se ignora el .jpg
+[OK]    4. Cada fila muestra nombre y tamaño
+[OK]    4. Los archivos repetidos no se duplican
+[OK]    4. «Quitar» elimina un archivo antes de iniciar
+[OK]    4. «Vaciar lista» deja la lista vacía
+[OK]    4. Arrastrar y soltar agrega archivos
+[OK]    4. Carpeta completa: 33 archivos .eml/.txt (con subcarpeta) y el .jpg ignorado
+[OK]    4. La carpeta incluyó la subcarpeta
+[OK]    5. Se muestra el progreso del análisis
+[OK]    5. El análisis continúa/termina al cambiar de sección y se conserva el estado
+[OK]    5. Resumen: 33 procesados = SPAM + LEGÍTIMOS + errores
+[OK]    5. Resumen: los errores individuales (vacío y binario) no detienen el lote
+[OK]    5. Resumen: porcentajes coherentes con los conteos
+[OK]    5. Los errores se identifican por archivo con su motivo
+[OK]    5. Cada resultado individual muestra SPAM/LEGÍTIMO y P(spam)
+[OK]    5. La API tiene los 33 registros del lote guardados
+[OK]    5. GET /lotes/{id} coincide con el resumen de la pantalla
+[OK]    5. Filtro SPAM
+[OK]    5. Filtro LEGÍTIMO
+[OK]    5. Filtro Con error
+[OK]    5. Búsqueda por nombre
+[OK]    5. Búsqueda por asunto
+[OK]    5. Búsqueda sin coincidencias muestra aviso
+[OK]    5. Detalle individual (modal) con P(spam), rasgos y dominios
+[OK]    5. El modal se cierra con Esc
+[OK]    5. Exportar CSV del lote: 200, BOM UTF-8 y 33 filas + encabezado
+[OK]    5. El botón de CSV inicia una descarga real
+[OK]    5. Cancelar: aparece el aviso de cancelación
+[OK]    5. Cancelar: quedan archivos sin procesar y los procesados suman lo analizado
+[OK]    5. Cancelar: lo mostrado coincide con lo guardado (sin registros fantasma)
+[OK]    6. El historial muestra los registros reales (coincide con la API)
+[OK]    6. Paginación: 25 por página
+[OK]    6. Siguiente página muestra el resto
+[OK]    6. Filtro SPAM coincide con la API
+[OK]    6. Filtro SPAM: todas las filas son SPAM
+[OK]    6. Filtro LEGÍTIMO coincide con la API
+[OK]    6. Filtro Con error coincide con la API
+[OK]    6. «Limpiar filtros» restablece
+[OK]    6. Filtro por tipo individual
+[OK]    6. Búsqueda por nombre
+[OK]    6. Búsqueda por asunto
+[OK]    6. Filtro por fecha sin resultados muestra estado vacío
+[OK]    6. Filtro por fecha (hoy) muestra los de hoy
+[OK]    6. Exportar CSV del historial completo
+[OK]    6. Eliminar un registro (con confirmación) lo borra de la base
+[OK]    6. Eliminar varios registros seleccionados
+[OK]    7. Abrir un análisis anterior por su dirección (#/historial/<id>)
+[OK]    7. Un análisis inexistente muestra un mensaje claro
+[OK]    8. Rendimiento del modelo: 0.9533 / 0.9652 / 0.9174 / 0.9407 (de metricas.json)
+[OK]    8. Matriz de confusión: VN 175, FP 4, FN 10, VP 111
+[OK]    8. Conjunto de validación etiquetado y distinto
+[OK]    8. Estadísticas de uso coinciden con los registros reales
+[OK]    8. Las estadísticas de uso no mezclan métricas del modelo
+[OK]    8. Gráfico por día y distribución presentes
+[OK]    9. Se llega con el análisis ya seleccionado
+[OK]    9. Guardar está desactivado hasta elegir una opinión
+[OK]    9. La retroalimentación se guarda y aparece con fecha y hora
+[OK]    9. Varias entradas por análisis; la más reciente se marca primero
+[OK]    9. En la base: 2 retroalimentaciones ligadas al análisis y la última es «de acuerdo»
+[OK]    9. Se puede elegir otro análisis de la lista (queda seleccionado y se muestra su resumen)
+[OK]    9. Buscar en la lista de análisis funciona
+[OK]    10. Acerca de: explica qué es, cómo funciona, tecnologías, limitaciones y definiciones
+[OK]    10. Acerca de: no inventa una categoría de phishing
+[OK]    Todas las secciones están implementadas (ninguna «En construcción»)
+[OK]    Persistencia: tras reiniciar el servidor el historial sigue igual
+[OK]    Persistencia: la retroalimentación sigue ligada al análisis
+[OK]    Responsivo móvil 390 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo tableta 768 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo escritorio 1280 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo móvil: el menú es accesible y «Elegir archivos» visible
+[OK]    Sin errores de JavaScript ni de consola en todo el recorrido
+[OK]    Sin respuestas HTTP de error inesperadas (4xx/5xx) durante el recorrido
+
+84/84 comprobaciones superadas

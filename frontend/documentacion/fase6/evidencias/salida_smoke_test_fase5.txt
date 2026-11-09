@@ -1,0 +1,21 @@
+# smoke_test_fase5.py  (2026-11-08T03:59:44Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] Archivos protegidos idénticos (SHA-256): detector, schemas, modelo, métricas, dataset y requirements
+[OK] Endpoints originales /salud, /metricas y /predecir con el modelo real, sin cambios
+[OK] CORS: solo se permiten localhost y 127.0.0.1; un sitio externo no recibe permiso
+[OK] El frontend (index, CSS y las 6 vistas) se sirve correctamente
+[OK] Individual: /correo/extraer → /predecir → /historial guardado (n.º 1; P(spam) 1.0)
+[OK] Validaciones de POST /historial (es_spam incoherente con P(spam), cuerpo vacío, resultado incompleto)
+[OK] Masivo: 12 correos reales; el resultado coincide EXACTAMENTE con /correo/extraer + /predecir (12/12; 81 ms por correo incluyendo la verificación)
+[OK] Masivo: errores individuales (vacío, binario, extensión, sin cuerpo, >5 MB) se guardan como registros y no detienen el lote; .txt aceptado
+[OK] Masivo: cuerpo JSON → 415; lote inexistente → 404
+[OK] Resumen del lote: 18 procesados · 7 SPAM · 6 LEGÍTIMOS · 5 errores (aparte)
+[OK] Historial: listado, filtros (resultado, tipo, lote, texto), paginación, validaciones y 404
+[OK] CSV: 200, text/csv, adjunto, BOM UTF-8, filas = registros, filtros y validación
+[OK] Retroalimentación: varias entradas ligadas al análisis, la más reciente primero, validaciones; no altera el modelo ni las métricas
+[OK] Estadísticas de uso: 14 analizados (errores aparte: 5), sin mezclar métricas del modelo
+[OK] Eliminación de uno y de varios (la retroalimentación se borra con su análisis)
+[OK] Persistencia: tras reiniciar la aplicación el historial conserva sus 15 registros
+[OK] Archivos protegidos siguen idénticos después de todas las pruebas
+
+17 grupos de comprobaciones superados con el MODELO REAL.
+EXIT=0

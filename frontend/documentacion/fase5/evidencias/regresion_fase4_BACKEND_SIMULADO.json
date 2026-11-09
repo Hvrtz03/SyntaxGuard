@@ -1,0 +1,732 @@
+{
+  "total": 145,
+  "superadas": 145,
+  "fallidas": 0,
+  "resultados": [
+    {
+      "prueba": "A1 (simulada) p=0.9732: el veredicto es SPAM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 P(spam) se muestra como 97.3 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 El banner usa el estilo rojo del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 La barra mide 97.32 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 Un solo tramo de riesgo activo: «Muy alto»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 La distancia al umbral es +47.3 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A1 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 (simulada) p=0.12: el veredicto es LEGÍTIMO",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 P(spam) se muestra como 12.0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 El banner usa el estilo verde del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 La barra mide 12 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 Un solo tramo de riesgo activo: «Bajo»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 La distancia al umbral es −38 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 (simulada) p=0.42: el veredicto es LEGÍTIMO",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 P(spam) se muestra como 42.0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 El banner usa el estilo verde del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 La barra mide 42 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 Un solo tramo de riesgo activo: «Moderado»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 La distancia al umbral es −8 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 (simulada) p=0.5: el veredicto es SPAM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 P(spam) se muestra como 50.0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 El banner usa el estilo rojo del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 La barra mide 50 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 Un solo tramo de riesgo activo: «Alto»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 La distancia al umbral es +0 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 (simulada) p=0.0: el veredicto es LEGÍTIMO",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 P(spam) se muestra como 0.0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 El banner usa el estilo verde del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 La barra mide 0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 Un solo tramo de riesgo activo: «Bajo»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 La distancia al umbral es −50 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 (simulada) p=1.0: el veredicto es SPAM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 P(spam) se muestra como 100.0 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 El banner usa el estilo rojo del veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 La barra mide 100 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 Un solo tramo de riesgo activo: «Muy alto»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 La distancia al umbral es +50 puntos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A6 La regla del umbral 50 % aparece en el banner",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A7 El resultado distingue clasificación final y P(spam) como cosas separadas",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A8 La interfaz aclara que P(spam) no es certeza ni confianza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A9 El nivel de riesgo se presenta como lectura orientativa y no calibrada",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A10 Con P(spam)=42 % y LEGÍTIMO se aclara que depende del umbral",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A11 Un caso a menos de 10 puntos del umbral se marca como caso límite",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A12 Un caso lejano del umbral (12 %) NO se marca como caso límite",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A13 P(spam) redondeada a 50 % con es_spam=false: sigue siendo LEGÍTIMO y se explica el redondeo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A14 Ese caso de redondeo no se presenta como error",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A15 Si la API devuelve es_spam y P(spam) incoherentes se avisa, y se respeta es_spam",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A16 Los tramos de riesgo cortan exactamente en 25 %, 50 % y 75 %",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A17 coherencia(): concuerda / redondeo / incoherente",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A18 El umbral usado en la interfaz es 0,5 y la distancia se calcula bien",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B1 Remitente, destinatario, asunto y fecha coinciden con lo que extrajo el backend",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B2 Hay un solo bloque de datos del mensaje en la pantalla (sin duplicados)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B3 La pestaña «Texto extraído» muestra el texto que extrajo el backend",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B4 El HTML del correo se ofrece como código en un desplegable, no renderizado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B5 Los enlaces mostrados son exactamente los del backend",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B6 Cada enlace indica su origen (texto o HTML)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B7 Se muestra el dominio como dato informativo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B8 Los enlaces NO son clicables (cero <a> en la pantalla)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B9 La interfaz no califica los enlaces como maliciosos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B10 Aclara que encontrar un enlace no lo vuelve sospechoso",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B11 Las características estructurales salen de datos reales del backend",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B12 La pestaña Estructura declara lo que la API no entrega",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B13 Los rasgos activos mostrados son exactamente los de la respuesta",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B14 Los rasgos sin activarse se separan y se cuentan",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B15 Se aclara que los rasgos son heurísticas y no atribuciones causales",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B16 Los enlaces no se presentan como rasgos del modelo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B17 Sin cabeceras, los cuatro campos dicen «No disponible»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B18 Se avisa que no hubo cabeceras y que falta HTML",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B19 Se enumeran los campos no disponibles",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B20 Estructura: texto pegado sin HTML se describe como tal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B21 Sin HTML, la pestaña de texto lo dice",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B22 Correo solo HTML: se avisa que el texto se obtuvo del HTML",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B23 Con adjunto: se avisa que se ignoró y el contador lo refleja",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B24 Texto largo: se marca dónde deja de leer el detector",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B25 Texto largo: la advertencia del backend aparece en «Avisos»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B26 Si la API no devuelve rasgos, se dice (sin romper la pantalla)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B27 Sin enlaces: el contador es 0 y se informa",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C1 Hay cinco preguntas de explicación",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 Existe la explicación «SPAM?»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 Existe la explicación «LEGÍTIMO?»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 Existe la explicación «P(spam)»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 Existe la explicación «50 %»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 Existe la explicación «Limitaciones»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C3 La explicación del umbral usa el valor real del caso (42.0 % bajo 50.0 %)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C4 Se explica que P(spam) no es confianza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C5 Abrir las demás explicaciones no pide /metricas (solo Limitaciones lo hace)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C6 Limitaciones: se enumeran, incluida la ausencia de categoría phishing",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C7 Muestra las métricas REALES de prueba (de /metricas), no cifras inventadas",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C8 Aclara que son cifras de prueba, no de validación",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C9 Abrir Limitaciones pidió /metricas una sola vez más",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C10 Cerrar y reabrir no repite la petición a /metricas",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C11 Si /metricas falla, se muestra un aviso claro sin romper la pantalla",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D1 Cambiar de pestaña no hace nuevas solicitudes al backend",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D2 Al ir a otra sección y volver, el resultado sigue ahí",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D3 …y se conserva la pestaña de evidencias elegida",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D4 …sin repetir solicitudes",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D5 El indicador de pasos marca «Entender»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D6 Las pestañas se manejan con flechas (→ lleva a Rasgos)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D7 Tecla Fin lleva a la última pestaña",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D8 Solo un panel visible a la vez",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D9 El botón «Nuevo análisis» del banner vuelve a la carga y limpia el estado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D10 Un segundo análisis funciona y usa una nueva (y única) solicitud",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D11 «Analizar otro correo» (panel lateral) también reinicia",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D12 Sin consola con errores en todo el flujo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D13 Durante el análisis: botón bloqueado y estado de carga visible",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D14 Clics repetidos durante la carga = una sola solicitud",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D15 Error 503: se muestra el motivo y se puede reintentar sin perder el correo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D16 Respuesta con formato inesperado: aviso claro y sin resultado a medias",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E1 No se ejecuta ningún script del correo ni de la respuesta (window.__xss sin definir)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E2 No existen script, img, iframe, a, object ni embed dentro de la pantalla de resultados",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E3 El asunto con etiquetas se ve como texto literal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E4 El remitente con etiquetas se ve como texto literal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E5 Una descripción de rasgo con HTML (respuesta hostil) se muestra literal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E6 El HTML hostil aparece solo como código de texto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E7 «javascript:» no aparece como enlace; los http aparecen como texto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E8 No hubo peticiones a evil.example (nada se carga desde el correo)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E9 Sin errores de consola",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E10 evidencias.js no usa innerHTML, outerHTML, insertAdjacentHTML, document.write ni eval",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E10 vistas/resultado.js no usa innerHTML, outerHTML, insertAdjacentHTML, document.write ni eval",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F1 Escritorio: sin desbordamiento horizontal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F2 Escritorio: dos columnas (el correo analizado queda a la derecha de la probabilidad)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F3 Móvil 390 px: sin desbordamiento horizontal en la pestaña «Texto extraído»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F3 Móvil 390 px: sin desbordamiento horizontal en la pestaña «Enlaces»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F3 Móvil 390 px: sin desbordamiento horizontal en la pestaña «Estructura»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F3 Móvil 390 px: sin desbordamiento horizontal en la pestaña «Rasgos»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F4 Móvil: orden banner → probabilidad → correo analizado → evidencias → explicación",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F5 Móvil: las escalas de riesgo y cifras caben en pantalla",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F6 Móvil: los botones se pueden tocar (alto ≥ 36 px)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F7 Móvil 360 px con contenido largo y hostil: sin desbordamiento horizontal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G1 (real) correo spam: la clasificación mostrada coincide con /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G2 (real) correo spam: P(spam) mostrada coincide con /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G3 (real) correo spam: los rasgos activos mostrados son los de /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G4 (real) correo spam: el nivel de riesgo corresponde al tramo de P(spam)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G5 (real) correo spam: una sola solicitud a /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G6 (real) correo spam: sin errores de consola",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G1 (real) correo legítimo: la clasificación mostrada coincide con /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G2 (real) correo legítimo: P(spam) mostrada coincide con /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G3 (real) correo legítimo: los rasgos activos mostrados son los de /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G4 (real) correo legítimo: el nivel de riesgo corresponde al tramo de P(spam)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G5 (real) correo legítimo: una sola solicitud a /predecir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G6 (real) correo legítimo: sin errores de consola",
+      "ok": true,
+      "detalle": ""
+    }
+  ]
+}

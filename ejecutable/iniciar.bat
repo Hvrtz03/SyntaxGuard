@@ -1,11 +1,11 @@
 @echo off
 chcp 65001 >nul
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0.."
 title SyntaxGuard
 
 echo ========================================================
-echo   SyntaxGuard - detector de spam y phishing
+echo   SyntaxGuard - detector de spam
 echo ========================================================
 
 if exist ".venv\Scripts\python.exe" goto :tiene_venv
@@ -44,10 +44,10 @@ if errorlevel 1 goto :error
 echo listo> ".venv\.sg_listo"
 
 :arrancar
-if not exist ".env" copy ".env.example" ".env" >nul
+if not exist ".env" if exist ".env.example" copy ".env.example" ".env" >nul
 echo [3/3] Iniciando SyntaxGuard...
 echo.
-".venv\Scripts\python.exe" run.py %*
+".venv\Scripts\python.exe" ejecutable\run.py %*
 if errorlevel 1 goto :error
 goto :fin
 

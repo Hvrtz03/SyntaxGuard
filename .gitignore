@@ -1,13 +1,16 @@
-# Entorno virtual y secretos (solo se sube .env.example)
+# Entorno y configuración local
 .venv/
-venv/
 .env
-
-# Caché de Python
 __pycache__/
 *.pyc
 
-# Archivos del sistema y del editor
-.DS_Store
-Thumbs.db
-.vscode/
+# Base de datos del historial (datos locales del usuario; se crea sola al iniciar)
+backend/storage/*.db
+backend/storage/*.db-wal
+backend/storage/*.db-shm
+# Respaldo automático antes de migrar a la Fase 6A (contiene datos del usuario)
+backend/storage/*.bak
+
+# Resultados generados por las pruebas
+frontend/documentacion/fase5/pruebas/resultados_*.json
+frontend/documentacion/fase5/pruebas/resultados_*.md

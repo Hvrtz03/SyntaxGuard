@@ -1,0 +1,44 @@
+{
+  "correos": 40,
+  "secuencial_s": 6.487,
+  "determinista_secuencial": true,
+  "pruebas": [
+    {
+      "hilos": 2,
+      "ronda": 1,
+      "segundos": 5.779,
+      "aceleracion": 1.12,
+      "diferencias": 0,
+      "errores": 0,
+      "ejemplos": []
+    },
+    {
+      "hilos": 2,
+      "ronda": 2,
+      "segundos": 6.32,
+      "aceleracion": 1.03,
+      "diferencias": 0,
+      "errores": 0,
+      "ejemplos": []
+    },
+    {
+      "hilos": 4,
+      "ronda": 1,
+      "segundos": 5.938,
+      "aceleracion": 1.09,
+      "diferencias": 0,
+      "errores": 0,
+      "ejemplos": []
+    },
+    {
+      "hilos": 4,
+      "ronda": 2,
+      "segundos": 5.769,
+      "aceleracion": 1.12,
+      "diferencias": 0,
+      "errores": 0,
+      "ejemplos": []
+    }
+  ],
+  "conclusion": "SIN diferencias ni errores en estas pruebas. No es una garantía (la prueba es una muestra), pero la concurrencia podría evaluarse con más correos y rondas."
+}

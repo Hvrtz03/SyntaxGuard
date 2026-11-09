@@ -73,12 +73,98 @@ export function avisoError(mensaje) {
   return h('div', { class: 'aviso aviso--error', role: 'alert' }, icono('alerta', { tam: 16 }), h('span', {}, mensaje));
 }
 
-// Formato del prototipo: coma decimal (0,12 · 92,7 %) y punto de millares (1.000).
-// Para usar punto decimal (convención de México) basta con cambiar LOCALE_NUMEROS a 'es-MX'.
-const LOCALE_NUMEROS = 'es-ES';
+// Formato mexicano (es-MX): punto decimal (0.12 · 92.7 %) y coma de millares (1,000).
+const LOCALE_NUMEROS = 'es-MX';
 const NUM = new Intl.NumberFormat(LOCALE_NUMEROS, { maximumFractionDigits: 4, useGrouping: 'always' });
 const PCT = new Intl.NumberFormat(LOCALE_NUMEROS, { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 });
 /** Formatea un número (0,9407). */
 export const fmtNum = (v) => (typeof v === 'number' && Number.isFinite(v) ? NUM.format(v) : '—');
 /** Formatea una proporción 0–1 como porcentaje (87,0 %). */
 export const fmtPct = (v) => (typeof v === 'number' && Number.isFinite(v) ? PCT.format(v).replace(/\s?%$/, ' %') : '—');
+
+/** Tamaño legible: 842 bytes · 12,3 KB · 1,2 MB. */
+export function fmtBytes(n) {
+  if (typeof n !== 'number' || !Number.isFinite(n) || n < 0) return '—';
+  const fmt = new Intl.NumberFormat(LOCALE_NUMEROS, { maximumFractionDigits: 1 });
+  if (n < 1024) return `${fmt.format(n)} bytes`;
+  if (n < 1024 * 1024) return `${fmt.format(n / 1024)} KB`;
+  return `${fmt.format(n / (1024 * 1024))} MB`;
+}
+
+/** Cambia el paso resaltado del indicador (sin volver a renderizar la página). */
+export function actualizarPasos(actual) {
+  const viejo = document.querySelector('.stepper');
+  if (viejo) viejo.replaceWith(indicadorPasos(actual));
+}
+
+/* ---------- Fase 5: fechas, clasificación, avisos emergentes y ventanas modales ---------- */
+const FECHA_HORA = new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+const FECHA_HORA_COMPLETA = new Intl.DateTimeFormat('es-MX', { dateStyle: 'full', timeStyle: 'medium' });
+
+/** Fecha y hora local legibles a partir de una fecha ISO (UTC) del servidor. «—» si no es válida. */
+export function fmtFecha(iso) {
+  const d = iso ? new Date(iso) : null;
+  return d && !Number.isNaN(d.getTime()) ? FECHA_HORA.format(d) : '—';
+}
+/** Versión larga (día de la semana y segundos) para títulos emergentes. */
+export function fmtFechaLarga(iso) {
+  const d = iso ? new Date(iso) : null;
+  return d && !Number.isNaN(d.getTime()) ? FECHA_HORA_COMPLETA.format(d) : '';
+}
+
+/** Chip con la clasificación de un registro del historial: SPAM, LEGÍTIMO o Error. */
+export function chipClasificacion(r) {
+  if (r.estado === 'error') return h('span', { class: 'chip chip--aviso' }, 'Error');
+  return r.es_spam ? h('span', { class: 'chip chip--error' }, 'SPAM') : h('span', { class: 'chip chip--ok' }, 'LEGÍTIMO');
+}
+
+/** Aviso emergente (no bloquea). tipo: 'ok' | 'error' | 'info'. */
+export function toast(mensaje, tipo = 'ok') {
+  let caja = document.getElementById('avisos-emergentes');
+  if (!caja) {
+    caja = h('div', { id: 'avisos-emergentes', class: 'toasts', role: 'status', 'aria-live': 'polite' });
+    document.body.append(caja);
+  }
+  const el = h('div', { class: `toast toast--${tipo}` }, icono(tipo === 'error' ? 'alerta' : 'check', { tam: 16 }), h('span', {}, mensaje));
+  caja.append(el);
+  setTimeout(() => el.remove(), tipo === 'error' ? 7000 : 4500);
+}
+
+/** Ventana modal (<dialog>). Devuelve { cerrar }. Se cierra con Esc, con el botón o al hacer clic fuera. */
+export function modal({ titulo, cuerpo, ancho = 'normal', alCerrar = null }) {
+  const dlg = h('dialog', { class: `modal modal--${ancho}`, 'aria-labelledby': 'titulo-modal' });
+  const cerrar = () => { if (dlg.open) dlg.close(); };
+  dlg.append(
+    h('div', { class: 'modal__cabecera' },
+      h('h2', { class: 'tarjeta__titulo', id: 'titulo-modal' }, titulo),
+      h('button', { type: 'button', class: 'btn btn--secundario btn--chico', 'aria-label': 'Cerrar', onclick: cerrar }, icono('cerrar', { tam: 14 }), 'Cerrar')),
+    h('div', { class: 'modal__cuerpo' }, cuerpo));
+  dlg.addEventListener('click', (ev) => { if (ev.target === dlg) cerrar(); });
+  dlg.addEventListener('close', () => { dlg.remove(); if (alCerrar) alCerrar(); });
+  document.body.append(dlg);
+  dlg.showModal();
+  return { cerrar };
+}
+
+/** Pregunta de confirmación. Resuelve true si la persona acepta. */
+export function confirmar({ titulo, texto, aceptar = 'Aceptar', peligro = false }) {
+  return new Promise((resolver) => {
+    let decidido = false;
+    const decidir = (v) => { decidido = true; resolver(v); m.cerrar(); };
+    const m = modal({
+      titulo,
+      ancho: 'chico',
+      cuerpo: [
+        h('p', { class: 'tarjeta__texto' }, texto),
+        h('div', { class: 'acciones acciones--fila' },
+          h('button', { type: 'button', class: 'btn btn--secundario', onclick: () => decidir(false) }, 'Cancelar'),
+          h('button', { type: 'button', class: `btn ${peligro ? 'btn--peligro' : 'btn--primario'}`, id: 'btn-confirmar', onclick: () => decidir(true) }, aceptar)),
+      ],
+      alCerrar: () => { if (!decidido) resolver(false); },
+    });
+    document.getElementById('btn-confirmar')?.focus();
+  });
+}
+
+/** Texto para un nombre de archivo y asunto en tablas (con valor de reserva). */
+export const textoOGuion = (v) => (v && String(v).trim() ? String(v) : '—');

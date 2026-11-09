@@ -1,4 +1,6 @@
-import { tarjetaPendiente } from '../ui.js';
+// Vista «Acerca de» (Fase 5). Contenido estático, redactado a partir del funcionamiento real del detector
+// (backend/app/detector.py) y de models/metricas.json. No muestra cifras: las cifras viven en «Métricas».
+import { h, icono } from '../ui.js';
 
 export const meta = {
   titulo: 'Acerca de SyntaxGuard',
@@ -6,10 +8,63 @@ export const meta = {
   paso: 0,
 };
 
+const bloque = (id, titulo, ...contenido) => h('section', { class: 'tarjeta', 'aria-labelledby': id },
+  h('h2', { class: 'tarjeta__titulo', id }, titulo), h('div', { style: 'height:10px' }), h('div', { class: 'texto-largo' }, ...contenido));
+const capa = (titulo, texto) => h('li', {}, h('strong', {}, titulo), texto);
+
 export function render() {
-  return tarjetaPendiente({
-    fase: 5,
-    titulo: 'Acerca de SyntaxGuard',
-    texto: 'Aquí se describirán el enfoque, las cinco capas de procesamiento y los límites de uso responsable.',
-  });
+  return h('div', { class: 'stack', id: 'acerca' },
+    bloque('ac-que', '¿Qué es SyntaxGuard?',
+      h('p', {}, 'SyntaxGuard es un detector de SPAM para correo electrónico. Recibe un mensaje (un archivo .eml, un archivo de texto o texto pegado), lo analiza con un modelo de aprendizaje automático y responde si lo considera SPAM o LEGÍTIMO, junto con la probabilidad de spam y las señales que encontró.'),
+      h('p', {}, 'Es un proyecto universitario. Funciona en tu propio equipo: el análisis lo hace el servidor local y el historial se guarda en una base de datos local.')),
+    bloque('ac-problema', '¿Qué problema busca resolver?',
+      h('p', {}, 'El SPAM cambia constantemente su vocabulario, pero conserva rasgos de forma: cómo se escribe, cómo se estructura el HTML y cómo se disfrazan los enlaces. SyntaxGuard no depende de una lista de palabras prohibidas; combina señales del lenguaje, de la estructura del mensaje y de sus enlaces para decidir.')),
+    bloque('ac-como', '¿Cómo funciona?',
+      h('ol', {},
+        h('li', {}, 'Extracción: el servidor lee el correo de forma segura. Obtiene el texto, el HTML (que se trata solo como datos, nunca se ejecuta), los enlaces y los datos del encabezado. Los adjuntos no se abren.'),
+        h('li', {}, 'Rasgos: el detector convierte el texto y el HTML en 33 valores numéricos (rasgos) agrupados en cinco familias.'),
+        h('li', {}, 'Clasificación: un Random Forest de 300 árboles, entrenado con correos etiquetados, calcula P(spam), la probabilidad de la clase spam.'),
+        h('li', {}, 'Decisión: si P(spam) es 0.5 o mayor, el correo se clasifica como SPAM; si es menor, como LEGÍTIMO.'),
+        h('li', {}, 'Resultado: se muestran la clasificación, P(spam) y las evidencias. Si lo analizas desde la aplicación, el resultado se guarda en el historial.'))),
+    h('section', { class: 'tarjeta', 'aria-labelledby': 'ac-sint' },
+      h('h2', { class: 'tarjeta__titulo', id: 'ac-sint' }, '¿Qué es el análisis sintáctico-estructural?'),
+      h('div', { style: 'height:10px' }),
+      h('div', { class: 'texto-largo' },
+        h('p', {}, 'Es analizar la forma de un mensaje y no solo sus palabras: cómo se construyen las oraciones (sintaxis) y cómo está armada la estructura del HTML y de sus enlaces. En SyntaxGuard esto se hace en cinco familias de rasgos:')),
+      h('ul', { class: 'cuadro-capas' },
+        capa('Texto', 'Longitud, mayúsculas, dígitos, signos de exclamación, símbolos de moneda y palabras típicas de spam (como «free» o «claim»).'),
+        capa('Categorías gramaticales', 'Proporción de verbos, sustantivos, adjetivos, adverbios, pronombres, modales y números (etiquetado con NLTK).'),
+        capa('Dependencias sintácticas', 'Número de oraciones, profundidad del árbol sintáctico y proporción de oraciones imperativas, que suelen dar órdenes al lector (spaCy).'),
+        capa('Enlaces', 'Cantidad y longitud de las URL, si apuntan a una dirección IP, si usan acortadores y si el dominio se parece a una marca conocida sin serlo (rapidfuzz).'),
+        capa('Estructura HTML (DOM)', 'Tamaño y profundidad del árbol del HTML, enlaces cuyo texto no coincide con su destino, elementos ocultos y la distancia de edición del árbol a una estructura típica de spam (zss).'))),
+    bloque('ac-info', '¿Qué información analiza el detector?',
+      h('p', {}, 'Solo dos entradas: el texto del cuerpo y su HTML. De ellas toma los primeros 3,000 caracteres del texto, hasta 20 enlaces y hasta 80 nodos del HTML.'),
+      h('p', {}, 'El asunto, el remitente, la fecha y el resto de los encabezados se muestran como información de apoyo y se guardan en el historial, pero el modelo no los usa para decidir. Tampoco se analizan los adjuntos ni se visita ningún enlace.')),
+    h('section', { class: 'tarjeta', 'aria-labelledby': 'ac-def' },
+      h('h2', { class: 'tarjeta__titulo', id: 'ac-def' }, 'SPAM y LEGÍTIMO: qué significan'),
+      h('div', { class: 'definiciones' },
+        h('div', { class: 'def def--spam' }, h('strong', {}, 'SPAM'), h('p', {}, 'El modelo estima que el correo es no solicitado o engañoso: P(spam) ≥ 0.5.')),
+        h('div', { class: 'def def--ok' }, h('strong', {}, 'LEGÍTIMO'), h('p', {}, 'El modelo estima que el correo es normal (en inglés, «ham»): P(spam) < 0.5.'))),
+      h('div', { class: 'texto-largo' },
+        h('p', {}, 'P(spam) es la probabilidad que el modelo asigna a la clase spam. No es una medida de confianza ni de certeza. El sistema solo distingue estas dos clases: no clasifica el phishing como una categoría aparte.'))),
+    bloque('ac-tec', 'Tecnologías',
+      h('ul', {},
+        h('li', {}, 'Frontend: HTML5, CSS3 y JavaScript puro, sin frameworks.'),
+        h('li', {}, 'Backend: Python y FastAPI; el historial se guarda con SQLite (biblioteca estándar de Python).'),
+        h('li', {}, 'Aprendizaje automático: scikit-learn (Random Forest) y joblib.'),
+        h('li', {}, 'Lenguaje natural y estructura: NLTK, spaCy (modelo en_core_web_sm), BeautifulSoup, zss y rapidfuzz.'))),
+    bloque('ac-lim', 'Limitaciones',
+      h('ul', {},
+        h('li', {}, 'El modelo se entrenó con correos en inglés; con otros idiomas puede equivocarse con más frecuencia.'),
+        h('li', {}, 'Solo lee los primeros 3,000 caracteres del texto; si el SPAM aparece después, no lo ve.'),
+        h('li', {}, 'No verifica quién envía el correo (por ejemplo SPF o DKIM), no abre adjuntos ni visita los enlaces.'),
+        h('li', {}, 'Las métricas de la pestaña Métricas se midieron en un conjunto de prueba de 300 correos; con otros correos el rendimiento puede variar. Puede haber falsos positivos (legítimos marcados como SPAM) y falsos negativos (SPAM que pasa).'),
+        h('li', {}, 'Los rasgos mostrados como evidencia son señales con umbrales fijos; indican qué está presente, no cuánto pesó cada una en la decisión.'),
+        h('li', {}, 'El resultado es una ayuda para revisar, no una decisión definitiva: conviene verificar los correos importantes.'))),
+    bloque('ac-priv', 'Privacidad y retroalimentación',
+      h('p', {}, 'El contenido de los correos no se guarda. El historial conserva solo metadatos (nombre de archivo, asunto, remitente, fecha), el resultado del modelo, los rasgos y los dominios de los enlaces, y puedes eliminar cualquier registro.'),
+      h('p', {}, 'La retroalimentación que envías se guarda ligada al análisis, pero no reentrena ni modifica el modelo.'),
+      h('div', { class: 'acciones acciones--fila' },
+        h('a', { class: 'btn btn--primario', href: '#/analisis' }, icono('analisis', { tam: 16 }), 'Analizar un correo'),
+        h('a', { class: 'btn btn--secundario', href: '#/metricas' }, icono('metricas', { tam: 16 }), 'Ver métricas'))));
 }

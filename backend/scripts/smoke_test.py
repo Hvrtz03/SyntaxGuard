@@ -6,6 +6,7 @@ sys.path.insert(0, str(ROOT))
 
 from fastapi.testclient import TestClient  # noqa: E402
 
+import auth_helper  # noqa: E402  (Fase 6A: base temporal y claves de prueba; las rutas privadas exigen sesión)
 from app.detector import MODEL_PATH, SpamDetector  # noqa: E402
 from app.main import app  # noqa: E402
 
@@ -30,6 +31,8 @@ def main():
 
     with TestClient(app) as c:
         assert c.get("/salud").json()["modelo_cargado"] is True
+        assert c.post("/predecir", json={"texto": TEXTO}).status_code in (401, 403), "/predecir debe exigir sesión"
+        auth_helper.iniciar_sesion(c)  # Fase 6A
         r = c.post("/predecir", json={"texto": TEXTO, "html": HTML})
         assert r.status_code == 200, r.text
         verificar_formato(r.json())

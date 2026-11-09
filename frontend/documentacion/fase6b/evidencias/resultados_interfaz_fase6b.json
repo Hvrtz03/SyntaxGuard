@@ -1,0 +1,294 @@
+{
+  "modo": "BACKEND 6A REAL + DETECTOR SIMULADO",
+  "total": 56,
+  "fallos": 0,
+  "resultados": [
+    {
+      "prueba": "1.1 Sin sesión se muestra la pantalla de acceso",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "1.2 Sin sesión no se muestra el menú ni vistas privadas",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "1.3 Al cargar: exactamente UNA consulta GET /auth/me",
+      "ok": true,
+      "detalle": "1"
+    },
+    {
+      "prueba": "1.4 Ninguna petición privada antes de conocer la sesión",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "2.1 Se alterna a «Crear cuenta» sin recargar",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.2 Campos vacíos: mensajes locales y sin petición",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.3 Contraseñas distintas: aviso local",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.4 422 del servidor: mensaje junto a cada campo (campos del contrato)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.5 Mostrar/ocultar contraseña",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.6 Registro válido: sesión abierta, menú y cuenta activa visibles",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2.7 El registro se envió una sola vez",
+      "ok": true,
+      "detalle": "registros=2"
+    },
+    {
+      "prueba": "2.8 Cookie de sesión HttpOnly y SameSite=Strict (la fija el servidor)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3.1 Análisis individual funciona con sesión (extraer, predecir, historial = 200)",
+      "ok": true,
+      "detalle": "[('POST', '/correo/extraer', 200), ('POST', '/predecir', 200), ('POST', '/historial', 201)]"
+    },
+    {
+      "prueba": "3.2 Todo POST privado lleva X-CSRF-Token",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3.3 Los GET no llevan X-CSRF-Token",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3.4 El resultado muestra SPAM (detector simulado)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3.5 Historial privado del usuario muestra su análisis",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4.1 Recarga: la sesión se restaura con UNA consulta /auth/me",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4.2 Se conserva la ruta (#/historial)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4.3 Ninguna petición privada se envió antes de /auth/me",
+      "ok": true,
+      "detalle": "me=[16] primera_privada=[21]"
+    },
+    {
+      "prueba": "4.4 document.cookie no expone la cookie de sesión",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4.5 localStorage y sessionStorage vacíos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5.1 403 csrf_invalido: renueva con UNA llamada a /auth/me y reintenta UNA vez",
+      "ok": true,
+      "detalle": "predecir=2 me=1"
+    },
+    {
+      "prueba": "6.1 401 → pantalla de acceso con «Tu sesión expiró»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.2 Sin sesión no queda menú, cuenta ni vista privada",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.3 Misma cuenta: vuelve a la ruta donde estaba (#/historial), sin recargar",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.4 Se conserva lo que la persona estaba escribiendo (contrato §9.1)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.5 Otra cuenta tras expirar: la interfaz se recarga (memoria limpia)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.6 La cuenta nueva muestra su propio nombre",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.7 El historial de la cuenta B no contiene los análisis de la cuenta A",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6.8 El borrador de A no aparece en la cuenta B",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7.1 Cerrar sesión: vuelve al acceso con «Cerraste sesión»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7.2 POST /auth/logout con X-CSRF-Token, una sola vez",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7.3 La sesión quedó invalidada EN EL SERVIDOR (la cookie copiada ya no sirve)",
+      "ok": true,
+      "detalle": "(401, 'sesion_expirada')"
+    },
+    {
+      "prueba": "7.4 El navegador borró la cookie",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7.5 El aviso del hash se limpió de la URL",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8.1 409 usuario duplicado: mensaje en el campo usuario",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8.2 401 credenciales incorrectas: mensaje del contrato y contraseña vaciada",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8.3 429: botón deshabilitado con cuenta regresiva y mensaje",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8.4 Durante el bloqueo no se envían más intentos (ni con Enter)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8.5 Al terminar la espera el botón se habilita de nuevo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9.1 Masivo: tras el primer 401 no se envía ningún archivo más (y no se enviaron los 4)",
+      "ok": true,
+      "detalle": "respuestas=[200, 401] enviados=2/4"
+    },
+    {
+      "prueba": "9.2 Masivo: la sesión terminada lleva al acceso",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9.3 Masivo: tras volver a entrar se informa que el análisis se detuvo por la sesión",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.1 Móvil: acceso sin desbordamiento horizontal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.2 Móvil: campos de 16 px (sin zoom en iOS) y objetivo táctil ≥ 44 px",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.3 Móvil: registro sin desbordamiento",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.4 Móvil: app con sesión sin desbordamiento",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.5 Móvil: «Cerrar sesión» visible dentro de la pantalla",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10.6 Móvil: cerrar sesión devuelve al acceso",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "11.1 Sin errores de JavaScript (pageerror) en toda la prueba",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "11.2 La consola del navegador no contiene contraseñas",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "11.3 La consola no contiene el token CSRF ni el valor de la cookie",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "11.4 El token CSRF no está en localStorage / sessionStorage / document.cookie / DOM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "11.5 localStorage y sessionStorage vacíos al final",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "11.6 Ningún campo de contraseña sigue con valor tras iniciar sesión",
+      "ok": true,
+      "detalle": ""
+    }
+  ],
+  "mensajes_de_consola_del_navegador": [
+    "error: Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "error: Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "error: Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "error: Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+    "error: Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+  ]
+}

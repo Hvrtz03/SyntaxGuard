@@ -1,0 +1,26 @@
+# test_auth_fase6.py  (2026-11-08T03:59:48Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] Primitivas: PBKDF2-HMAC-SHA256 con sal de 16 bytes, 600000 iteraciones por defecto, token de 256 bits, HMAC con clave del servidor
+[OK] Configuración: sin SG_SECRET_KEY en producción, con clave corta o con SameSite=None el servidor NO arranca
+[OK] Registro correcto: 201, usuario normalizado, cookie HttpOnly + SameSite=Strict + Path=/ (+Secure en HTTPS o por configuración)
+[OK] Base de datos: sin contraseñas en texto plano, sin tokens de sesión (solo su HMAC) y sin token CSRF
+[OK] Usuario duplicado: 409 usuario_duplicado (sin distinguir mayúsculas ni espacios)
+[OK] Contraseña y usuario inválidos: 422 datos_invalidos con el detalle por campo; cuerpos mal formados también
+[OK] Login correcto: 200, usuario sin distinguir mayúsculas, token nuevo por sesión
+[OK] Login incorrecto: 401 con el MISMO mensaje para contraseña errónea y usuario inexistente; inyección SQL inofensiva
+[OK] Rotación: al iniciar sesión la cookie anterior se revoca (sin fijación de sesión)
+[OK] /auth/me: 200 con usuario y token CSRF; 401 no_autenticado sin cookie; 401 sesion_expirada (y cookie borrada) con token inválido
+[OK] Logout: exige CSRF, revoca la sesión EN EL SERVIDOR (un token copiado deja de servir), borra la cookie y es idempotente
+[OK] Sesión expirada: expiración absoluta e inactividad (>24 h) -> 401 sesion_expirada; el uso reciente la mantiene
+[OK] Revocación: todas las sesiones del usuario, usuario desactivado y tope de sesiones simultáneas
+[OK] CSRF: toda solicitud que modifica datos sin el token (o con el de otra sesión) -> 403 csrf_invalido; las lecturas no lo necesitan
+[OK] Origen: POST/DELETE desde otro sitio, sin Origin, con Origin null o malformado -> 403 origen_no_permitido (también login/registro/logout)
+[OK] Límite de intentos: tras 3 fallos desde la misma IP, el 4.º (aunque sea correcto) -> 429 con Retry-After
+[OK] Límite por usuario+IP, por usuario (ataque distribuido) y por IP (rociado); el usuario legítimo desde otra IP no queda bloqueado
+[OK] Los bloqueos se guardan en SQLite (sobreviven al reinicio), caducan a los 15 min y un login correcto limpia los fallos
+[OK] Límite de registros por IP y hora (429)
+[OK] Enumeración de rutas: las 15 rutas privadas devuelven 401 sin sesión y con token falso; ninguna ruta nueva quedó sin protección
+[OK] /salud y /metricas siguen públicos; /metricas devuelve exactamente metricas.json
+[OK] Archivos protegidos idénticos (SHA-256): detector, schemas, modelo, métricas, dataset y requirements
+
+22 grupos de comprobaciones superados (API real y modelo real).
+EXIT=0

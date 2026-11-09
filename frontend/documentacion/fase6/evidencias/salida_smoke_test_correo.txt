@@ -1,0 +1,29 @@
+# smoke_test_correo.py  (2026-11-08T03:59:35Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] Constantes coherentes con detector.py y schemas.py
+[OK] Endpoints originales intactos: /salud, /metricas (0,9533 · 175/4/10/111), /predecir, y la interfaz en /
+[OK] Multipart: cabeceras, texto, html, enlaces y adjunto ignorado
+[OK] Correo solo HTML: el texto se obtiene del HTML y se avisa
+[OK] Codificaciones: UTF-8, ISO-8859-1, Windows-1252, base64 y charset desconocido
+[OK] Texto y HTML pegados sin cabeceras
+[OK] HTML malicioso: solo texto, sin javascript: y sin ejecutar nada
+[OK] Validaciones: vacío, binario, extensión, tipo de contenido, sin texto y >5 MB (con y sin Content-Length)
+[OK] Nombre de archivo saneado (sin rutas) y con acentos
+[OK] Texto largo: se recorta al límite del esquema y se avisa del límite del detector
+[OK] Extraer -> /predecir con el modelo real: es_spam=True · probabilidad=0.8333
+
+Correos reales del corpus:
+     easy_ham/0001.ea7e79d…  carpeta=ham   modelo=LEGÍTIMO  P(spam)=0.0633
+     easy_ham/0213.ee51a59…  carpeta=ham   modelo=LEGÍTIMO  P(spam)=0.1133
+     easy_ham/0425.bc356b2…  carpeta=ham   modelo=LEGÍTIMO  P(spam)=0.17
+     spam/00001.7848dd…  carpeta=spam  modelo=SPAM      P(spam)=1.0
+     spam/00042.3e934b…  carpeta=spam  modelo=SPAM      P(spam)=0.9833
+     spam/00083.c1891c…  carpeta=spam  modelo=SPAM      P(spam)=0.9867
+     spam_2/00001.317e78…  carpeta=spam  modelo=SPAM      P(spam)=0.91
+     spam_2/00117.9f0ba9…  carpeta=spam  modelo=SPAM      P(spam)=0.96
+     spam_2/00233.3c3228…  carpeta=spam  modelo=SPAM      P(spam)=0.9967
+
+     Resumen: {'ok': 35, 'sin_texto(422)': 1, 'paridad_ok': 35, 'paridad_distinta': 0, 'predicciones': 9}
+[OK] Correos reales: 35 extraídos; 100.0% idénticos al formato de entrenamiento
+
+Prueba del backend de la Fase 3 superada.
+EXIT=0

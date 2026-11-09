@@ -1,0 +1,427 @@
+{
+  "modo": "servidor de prueba con detector SIMULADO",
+  "total": 84,
+  "fallos": 0,
+  "resultados": [
+    {
+      "prueba": "1. El menú lateral tiene 6 secciones, incluida «Análisis masivo»",
+      "ok": true,
+      "detalle": "['Análisis', 'Análisis masivo', 'Historial', 'Métricas', 'Retroalimentación', 'Acerca de']"
+    },
+    {
+      "prueba": "1. El indicador de la API muestra «Modelo cargado»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "1. La sección Análisis está activa al abrir",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "2. La vista previa muestra el asunto extraído",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3. Resultado: muestra SPAM o LEGÍTIMO",
+      "ok": true,
+      "detalle": "CLASIFICACIÓN DEL MODELO\n\nSPAM\n\nEl modelo clasifica este correo como spam.\n\nRegl"
+    },
+    {
+      "prueba": "3. Resultado: probabilidad con punto decimal (es-MX) y «%»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3. Resultado: chip «Guardado» en el historial",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3. Evidencias: las 4 pestañas (rasgos, texto, enlaces, estructura) abren su panel",
+      "ok": true,
+      "detalle": "[True, True, True, True]"
+    },
+    {
+      "prueba": "3. Evidencias: el enlace acortador se muestra en la pestaña Enlaces",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3. El detalle guardado muestra el dominio del enlace",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "3. D1: el detalle NO muestra la URL completa ni el cuerpo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10. Al volver a Análisis se conserva el resultado (estado entre secciones)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4. Archivos agregados: se listan los 3 .eml y se ignora el .jpg",
+      "ok": true,
+      "detalle": "Análisis masivo\n\nAnaliza muchos correos (.eml o .txt) o una carpeta completa. Un correo con error no detiene el proceso.\n\nSe agregaron 3 archivos. 1 se ignoraron por no ser .eml ni .txt.\nSeleccionar c"
+    },
+    {
+      "prueba": "4. Cada fila muestra nombre y tamaño",
+      "ok": true,
+      "detalle": "00_spam_00001..eml\n\t4.8 KB\tPendiente\t—\t—\t\nQuitar"
+    },
+    {
+      "prueba": "4. Los archivos repetidos no se duplican",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4. «Quitar» elimina un archivo antes de iniciar",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4. «Vaciar lista» deja la lista vacía",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4. Arrastrar y soltar agrega archivos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "4. Carpeta completa: 33 archivos .eml/.txt (con subcarpeta) y el .jpg ignorado",
+      "ok": true,
+      "detalle": "33"
+    },
+    {
+      "prueba": "4. La carpeta incluyó la subcarpeta",
+      "ok": true,
+      "detalle": "['carpeta_correos/15_ham_0002.b.eml', 'carpeta_correos/13_spam_00014..eml', 'carpeta_correos/20_ham_0007.c.eml']"
+    },
+    {
+      "prueba": "5. Se muestra el progreso del análisis",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. El análisis continúa/termina al cambiar de sección y se conserva el estado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Resumen: 33 procesados = SPAM + LEGÍTIMOS + errores",
+      "ok": true,
+      "detalle": "{'Correos procesados': '33', 'SPAM': '8', 'LEGÍTIMOS': '23', 'Errores': '2', '% SPAM': '25.8 %', '% LEGÍTIMOS': '74.2 %'}"
+    },
+    {
+      "prueba": "5. Resumen: los errores individuales (vacío y binario) no detienen el lote",
+      "ok": true,
+      "detalle": "({'Correos procesados': '33', 'SPAM': '8', 'LEGÍTIMOS': '23', 'Errores': '2', '% SPAM': '25.8 %', '% LEGÍTIMOS': '74.2 %'}, ['vacio.eml', 'binario.eml'])"
+    },
+    {
+      "prueba": "5. Resumen: porcentajes coherentes con los conteos",
+      "ok": true,
+      "detalle": "{'Correos procesados': '33', 'SPAM': '8', 'LEGÍTIMOS': '23', 'Errores': '2', '% SPAM': '25.8 %', '% LEGÍTIMOS': '74.2 %'}"
+    },
+    {
+      "prueba": "5. Los errores se identifican por archivo con su motivo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Cada resultado individual muestra SPAM/LEGÍTIMO y P(spam)",
+      "ok": true,
+      "detalle": "15_ham_0002.b.eml\n\t3.3 KB\tLEGÍTIMO\t45.0 %\t[zzzzteana] RE: Alexander\tDetalles"
+    },
+    {
+      "prueba": "5. La API tiene los 33 registros del lote guardados",
+      "ok": true,
+      "detalle": "33"
+    },
+    {
+      "prueba": "5. GET /lotes/{id} coincide con el resumen de la pantalla",
+      "ok": true,
+      "detalle": "{'id': 1, 'creado_en': '2026-11-06T00:36:34Z', 'total_previsto': 33, 'total_procesados': 33, 'spam': 8, 'legitimos': 23, 'errores': 2, 'clasificados': 31, 'porcentaje_spam': 25.8, 'porcentaje_legitimos': 74.2}"
+    },
+    {
+      "prueba": "5. Filtro SPAM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Filtro LEGÍTIMO",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Filtro Con error",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Búsqueda por nombre",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Búsqueda por asunto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Búsqueda sin coincidencias muestra aviso",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Detalle individual (modal) con P(spam), rasgos y dominios",
+      "ok": true,
+      "detalle": "15_ham_0002.b.eml\nCerrar\nLEGÍTIMO\nEl modelo clasificó este correo como LEGÍTIMO\nProbabilidad de spam, P(spam)\n45.0 %\n0 %\nUmbral 50.0 %\n100 %\n\nSPAM si "
+    },
+    {
+      "prueba": "5. El modal se cierra con Esc",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Exportar CSV del lote: 200, BOM UTF-8 y 33 filas + encabezado",
+      "ok": true,
+      "detalle": "(200, 34)"
+    },
+    {
+      "prueba": "5. El botón de CSV inicia una descarga real",
+      "ok": true,
+      "detalle": "syntaxguard_historial.csv"
+    },
+    {
+      "prueba": "5. Cancelar: aparece el aviso de cancelación",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "5. Cancelar: quedan archivos sin procesar y los procesados suman lo analizado",
+      "ok": true,
+      "detalle": "({'Correos procesados': 3, 'SPAM': 1, 'LEGÍTIMOS': 2, 'Errores': 0}, 30)"
+    },
+    {
+      "prueba": "5. Cancelar: lo mostrado coincide con lo guardado (sin registros fantasma)",
+      "ok": true,
+      "detalle": "(36, {'Correos procesados': 3, 'SPAM': 1, 'LEGÍTIMOS': 2, 'Errores': 0})"
+    },
+    {
+      "prueba": "6. El historial muestra los registros reales (coincide con la API)",
+      "ok": true,
+      "detalle": "(37, 37)"
+    },
+    {
+      "prueba": "6. Paginación: 25 por página",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Siguiente página muestra el resto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Filtro SPAM coincide con la API",
+      "ok": true,
+      "detalle": "10"
+    },
+    {
+      "prueba": "6. Filtro SPAM: todas las filas son SPAM",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Filtro LEGÍTIMO coincide con la API",
+      "ok": true,
+      "detalle": "25"
+    },
+    {
+      "prueba": "6. Filtro Con error coincide con la API",
+      "ok": true,
+      "detalle": "2"
+    },
+    {
+      "prueba": "6. «Limpiar filtros» restablece",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Filtro por tipo individual",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Búsqueda por nombre",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Búsqueda por asunto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Filtro por fecha sin resultados muestra estado vacío",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Filtro por fecha (hoy) muestra los de hoy",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Exportar CSV del historial completo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Eliminar un registro (con confirmación) lo borra de la base",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "6. Eliminar varios registros seleccionados",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7. Abrir un análisis anterior por su dirección (#/historial/<id>)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "7. Un análisis inexistente muestra un mensaje claro",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8. Rendimiento del modelo: 0.9533 / 0.9652 / 0.9174 / 0.9407 (de metricas.json)",
+      "ok": true,
+      "detalle": "Exactitud\n0.9533\n95.3 %\nPrecisión\n0.9652\n96.5 %\nRecall\n0.9174\n91.7 %\nF1\n0.9407\n94.1 %"
+    },
+    {
+      "prueba": "8. Matriz de confusión: VN 175, FP 4, FN 10, VP 111",
+      "ok": true,
+      "detalle": "['175', '4', '10', '111']"
+    },
+    {
+      "prueba": "8. Conjunto de validación etiquetado y distinto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8. Estadísticas de uso coinciden con los registros reales",
+      "ok": true,
+      "detalle": "(33, 'Correos analizados\\n33\\n1 individuales · 32 masivos\\nSPAM detectados\\n9\\nCorreos legítimos\\n24\\nPorcentaje de SPAM\\n27.3 %\\nsobre')"
+    },
+    {
+      "prueba": "8. Las estadísticas de uso no mezclan métricas del modelo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "8. Gráfico por día y distribución presentes",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9. Se llega con el análisis ya seleccionado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9. Guardar está desactivado hasta elegir una opinión",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9. La retroalimentación se guarda y aparece con fecha y hora",
+      "ok": true,
+      "detalle": "En desacuerdo\nEnviada el 6 nov 2026, 00:36\nModelo: SPAM (P(spam) 99.0 %)\n05_spam_00006..eml\n\nNo lo considero spam"
+    },
+    {
+      "prueba": "9. Varias entradas por análisis; la más reciente se marca primero",
+      "ok": true,
+      "detalle": "De acuerdo\nEnviada el 6 nov 2026, 00:36\nMás reciente\nModelo: SPAM (P(spam) 99.0 %)\n05_spam_00006..eml"
+    },
+    {
+      "prueba": "9. En la base: 2 retroalimentaciones ligadas al análisis y la última es «de acuerdo»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "9. Se puede elegir otro análisis de la lista (queda seleccionado y se muestra su resumen)",
+      "ok": true,
+      "detalle": "34"
+    },
+    {
+      "prueba": "9. Buscar en la lista de análisis funciona",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10. Acerca de: explica qué es, cómo funciona, tecnologías, limitaciones y definiciones",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "10. Acerca de: no inventa una categoría de phishing",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "Todas las secciones están implementadas (ninguna «En construcción»)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "Persistencia: tras reiniciar el servidor el historial sigue igual",
+      "ok": true,
+      "detalle": "(34, 34)"
+    },
+    {
+      "prueba": "Persistencia: la retroalimentación sigue ligada al análisis",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "Responsivo móvil 390 px: ninguna sección desborda horizontalmente",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "Responsivo tableta 768 px: ninguna sección desborda horizontalmente",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "Responsivo escritorio 1280 px: ninguna sección desborda horizontalmente",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "Responsivo móvil: el menú es accesible y «Elegir archivos» visible",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "Sin errores de JavaScript ni de consola en todo el recorrido",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "Sin respuestas HTTP de error inesperadas (4xx/5xx) durante el recorrido",
+      "ok": true,
+      "detalle": "[]"
+    }
+  ]
+}

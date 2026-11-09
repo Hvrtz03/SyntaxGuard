@@ -1,0 +1,476 @@
+{
+  "total": 94,
+  "fallas": 0,
+  "resultados": [
+    {
+      "prueba": "A1 La pantalla Analizar muestra formatos (.eml) y tamaño máximo (5 MB)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A2 Hay zona de carga, botón «Elegir archivo» y pestaña «Pegar contenido»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A3 Los estilos nuevos se cargan (borde punteado en la zona)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4 El indicador de pasos marca «Cargar»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A4b El diagnóstico de conexión de la Fase 2 se conserva (plegado) y /salud y /metricas aparecen conectados",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A5 /correo/extraer (llamada directa) responde 200",
+      "ok": true,
+      "detalle": "200"
+    },
+    {
+      "prueba": "A6 Se muestra el nombre del archivo",
+      "ok": true,
+      "detalle": "spam_prueba.eml"
+    },
+    {
+      "prueba": "A7 Se muestra el tamaño del archivo",
+      "ok": true,
+      "detalle": "1,1 KB · Archivo"
+    },
+    {
+      "prueba": "A8 Remitente, destinatario, asunto y fecha coinciden con lo que devuelve la API",
+      "ok": true,
+      "detalle": "Remitente | Premios <promo@ofertas-ya.example> | Destinatario | victima@correo.example | Asunto | WINNER!! Claim your FREE prize now | Fecha | Wed, 21 Aug 2002 10:54:46 -0500"
+    },
+    {
+      "prueba": "A9 La vista previa muestra el cuerpo del correo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A10 Se listan los enlaces encontrados (los mismos que devuelve la API)",
+      "ok": true,
+      "detalle": "['http://bit.ly/claim-now', 'www.premios-ya.example', 'http://paypa1.com/login'] vs ['http://bit.ly/claim-now', 'www.premios-ya.example', 'http://paypa1.com/login']"
+    },
+    {
+      "prueba": "A11 Los enlaces NO son clicables (no hay <a href> en la vista)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A12 Se muestran las advertencias de la API",
+      "ok": true,
+      "detalle": "['Se ignoraron 1 adjunto(s): no se abren ni se analizan.']"
+    },
+    {
+      "prueba": "A13 Se muestra el número de adjuntos ignorados y de enlaces",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A14 Aparece el botón «Analizar correo» y el paso actual es «Analizar»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A15 Al pulsar «Analizar correo» se hace exactamente UNA llamada a /predecir",
+      "ok": true,
+      "detalle": "['/predecir']"
+    },
+    {
+      "prueba": "A16 La clasificación mostrada coincide con la del modelo real",
+      "ok": true,
+      "detalle": "UI=SPAM API es_spam=True"
+    },
+    {
+      "prueba": "A17 La probabilidad de spam mostrada coincide con la del modelo",
+      "ok": true,
+      "detalle": "UI=99.0 API=99.000"
+    },
+    {
+      "prueba": "A18 Los rasgos activos mostrados son exactamente los que devuelve el backend",
+      "ok": true,
+      "detalle": "3 esperados"
+    },
+    {
+      "prueba": "A19 Los rasgos medidos sin activarse se separan de los detectados",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A20 La interfaz aclara que la probabilidad es P(spam) y no certeza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A21 El indicador de pasos marca «Entender»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A22 El resultado no presenta los enlaces como rasgos del modelo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A23 «Analizar otro correo» vuelve a la carga y limpia el estado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A24 Consola limpia en todo el camino feliz (sin errores ni avisos de JavaScript)",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "A25 Segundo correo: la clasificación coincide con el modelo",
+      "ok": true,
+      "detalle": "UI=LEGÍTIMO API=LEGÍTIMO"
+    },
+    {
+      "prueba": "A26 El banner usa el estilo del veredicto (rojo SPAM / verde LEGÍTIMO)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "A27 Sin errores de consola",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "B1 Al arrastrar sobre la zona se resalta (zona--activa)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B2 Al soltar un .eml se extrae y se muestra su vista previa",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B3 Sin errores de consola al arrastrar y soltar",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "B4 Soltar varios archivos a la vez muestra un mensaje claro",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "B5 Ese error no inicia ninguna extracción",
+      "ok": true,
+      "detalle": "['/correo/extraer']"
+    },
+    {
+      "prueba": "B6 Soltar un formato no admitido (.png) muestra el error de formato",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C1 Extraer con el área vacía muestra un error y no llama a la API",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C2 El contador de caracteres se actualiza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C3 El correo pegado (con cabeceras) se extrae y se identifica como «Texto pegado»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C4 Del texto pegado se extraen remitente y asunto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C5 Pegar solo el cuerpo: los campos sin datos dicen «No disponible»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C6 Pegar solo el cuerpo: se avisa que no hay cabeceras",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C7 El texto pegado se analiza con el modelo real (hay veredicto)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "C8 Sin errores de consola al pegar y analizar",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "D1 Extensión no admitida (.pdf): mensaje claro y sin llamar al servidor",
+      "ok": true,
+      "detalle": "El formato «.pdf» no es compatible. Usa un archivo .eml o .txt."
+    },
+    {
+      "prueba": "D2 Archivo vacío: mensaje claro y sin llamar al servidor",
+      "ok": true,
+      "detalle": "El archivo «vacio.eml» está vacío."
+    },
+    {
+      "prueba": "D3 Archivo de más de 5 MB: mensaje claro y sin llamar al servidor",
+      "ok": true,
+      "detalle": "El archivo «enorme.eml» pesa 5 MB; el máximo permitido es 5 MB."
+    },
+    {
+      "prueba": "D4 Archivo sin extensión: mensaje claro y sin llamar al servidor",
+      "ok": true,
+      "detalle": "El formato «sin extensión» no es compatible. Usa un archivo .eml o .txt."
+    },
+    {
+      "prueba": "D5 Un .eml binario/corrupto: el servidor lo rechaza y la interfaz muestra su mensaje",
+      "ok": true,
+      "detalle": "El contenido parece un archivo binario, no un correo en texto (.eml)."
+    },
+    {
+      "prueba": "D6 Tras el error la interfaz vuelve a la carga (se puede elegir otro archivo)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "D7 Correo sin texto analizable: mensaje claro del servidor",
+      "ok": true,
+      "detalle": "El correo no contiene texto analizable."
+    },
+    {
+      "prueba": "D8 Después de varios errores se puede cargar un correo válido",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E1 «Quitar» elimina el archivo y vuelve a la carga",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E2 Se puede elegir otro archivo y se muestra su nombre",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E3 «Elegir otro correo» también reinicia",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E4 Soltar un archivo sobre una vista previa lo reemplaza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "E5 Sin errores de consola",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "F1 Durante el análisis se muestra el indicador de carga («Analizando con el modelo…»)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F2 El botón se desactiva mientras se analiza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F3 «Quitar» y «Elegir otro correo» se bloquean mientras se analiza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "F4 Tres clics seguidos producen una sola llamada a /predecir",
+      "ok": true,
+      "detalle": "['/predecir']"
+    },
+    {
+      "prueba": "G1 Si la API no responde: mensaje de conexión claro",
+      "ok": true,
+      "detalle": "No se pudo conectar con la API. Verifica que el servidor esté en ejecución. Puedes intentarlo de nuevo."
+    },
+    {
+      "prueba": "G2 Tras el error se conserva la vista previa y el botón se reactiva",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G3 Error HTTP 500 de la API: se muestra el mensaje recibido",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G4 Respuesta 200 con formato inesperado: se rechaza con mensaje claro (no se muestra un resultado falso)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G5 Al volver la conexión, «Analizar correo» funciona de nuevo (reintento)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "G6 Si falla la conexión al extraer: mensaje claro y se vuelve a la carga",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H1 Al ir a otra sección y volver se conserva el correo cargado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H2 El indicador de pasos sigue en «Analizar» tras volver",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H3 También se conserva el resultado al volver",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H4 El indicador de pasos sigue en «Entender» tras volver",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H5 «Volver a la vista previa» regresa al correo sin perderlo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "H6 Sin errores de consola al navegar",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "I0 Con la tecla Tab se llega al botón «Elegir archivo»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I1 Con teclado: Enter sobre «Elegir archivo» activa el botón",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I2 Tras extraer, el foco queda en «Analizar correo»",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I3 Con teclado: Enter en «Analizar correo» analiza",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I4 Tras el resultado, el foco pasa al veredicto",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I5 Las pestañas se cambian con las flechas del teclado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "I6 Cada campo de la pantalla tiene etiqueta accesible (label del área de texto)",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J1 El script del correo NO se ejecuta (window.__xss sigue sin definir)",
+      "ok": true,
+      "detalle": "undefined"
+    },
+    {
+      "prueba": "J2 No se crean <script>, <img>, <iframe> ni <a> dentro de la vista del correo",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J3 El asunto con etiquetas se ve como texto literal",
+      "ok": true,
+      "detalle": "Remitente\n\"<b>Banco</b>\" <a@b.example>\nDestinatario\nc@d.example\nAsunto\n<img src=x onerror=\"window.__xss=4\">\nFecha\nNo disponible"
+    },
+    {
+      "prueba": "J4 El remitente con etiquetas se ve como texto literal",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J5 El HTML malicioso aparece solo como código de texto en el desplegable",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J6 El nombre de archivo con caracteres HTML se muestra literal",
+      "ok": true,
+      "detalle": "a<b>c&d.eml"
+    },
+    {
+      "prueba": "J7 javascript: no aparece como enlace; el href http sí aparece como texto no clicable",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J8 Tras analizar tampoco se ejecuta nada y sigue sin haber elementos peligrosos",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "J9 No hubo peticiones a evil.example (no se cargaron imágenes ni iframes del correo)",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "K1 Móvil: la pantalla inicial no desborda horizontalmente",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "K2 Móvil: la vista previa no desborda horizontalmente",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "K3 Móvil: el resultado no desborda horizontalmente",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "K4 Móvil: sin errores de consola",
+      "ok": true,
+      "detalle": "[]"
+    },
+    {
+      "prueba": "L1 /salud responde 200 con el modelo cargado",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "L2 /metricas responde 200 con las métricas de prueba originales",
+      "ok": true,
+      "detalle": ""
+    },
+    {
+      "prueba": "L3 /predecir responde 200 con el formato original",
+      "ok": true,
+      "detalle": ""
+    }
+  ]
+}

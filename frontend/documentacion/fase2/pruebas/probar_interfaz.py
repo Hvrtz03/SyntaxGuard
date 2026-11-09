@@ -1,4 +1,6 @@
 """Pruebas de la interfaz con un navegador real (Chromium/Playwright) contra el servidor en ejecución.
+[Fase 5 / D6] Las expectativas numéricas se actualizaron al formato es-MX (punto decimal, coma de millares) y el menú tiene 6 elementos.
+
 Uso: python probar_interfaz.py <url_base> <carpeta_capturas> <salida_resultados.json>
 """
 import json
@@ -51,7 +53,7 @@ def recorrer(p, movil):
     page.wait_for_selector("#chip-api.chip--ok", timeout=8000)
     check(f"[{tag}] Chip de la API indica modelo cargado", "Modelo cargado" in page.inner_text("#chip-api"), page.inner_text("#chip-api"))
     check(f"[{tag}] Pie muestra versión de la API", "API v1.0.0" in page.inner_text("#pie-version"), page.inner_text("#pie-version"))
-    check(f"[{tag}] 5 elementos de menú", page.locator(".nav__item").count() == 5, str(page.locator(".nav__item").count()))
+    check(f"[{tag}] 6 elementos de menú (incluye Análisis masivo)", page.locator(".nav__item").count() == 6, str(page.locator(".nav__item").count()))
 
     for ruta, titulo, etiqueta in RUTAS:
         page.locator(f'.nav__item[data-ruta="{ruta}"]').click()
@@ -65,10 +67,11 @@ def recorrer(p, movil):
         check(f"[{tag}] {ruta}: sin desplazamiento horizontal de la página", desborde <= 1, f"desborde={desborde}px")
         if ruta == "analisis":
             page.wait_for_function("document.querySelectorAll('.verif__fila .chip--ok').length >= 2", timeout=8000)
+            page.locator("details.diagnostico > summary").click()  # Fase 3: el panel ahora es plegable
             filas = page.locator(".verif__fila").all_inner_texts()
             check(f"[{tag}] Análisis: /salud y /metricas conectados", sum("Conectado" in f for f in filas) == 2, " | ".join(x.replace("\n", " ") for x in filas))
             txt = " ".join(filas)
-            check(f"[{tag}] Análisis: muestra 2.000 filas y F1 0,9407 reales de metricas.json", "2.000" in txt and "0,9407" in txt)
+            check(f"[{tag}] Análisis: muestra 2,000 filas y F1 0.9407 reales de metricas.json", "2,000" in txt and "0.9407" in txt)
             page.screenshot(path=str(CAPT / f"{tag}_analisis_antes_de_probar.png"), full_page=True)
             page.locator("button", has_text="Probar /predecir").click()
             page.wait_for_function("[...document.querySelectorAll('.verif__fila')].some(f => f.textContent.includes('POST') && f.textContent.includes('Conectado'))", timeout=15000)

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Inicia SyntaxGuard en Linux/macOS. Uso: bash iniciar.sh
+# Inicia SyntaxGuard en Linux/macOS. Uso (desde cualquier carpeta): bash ejecutable/iniciar.sh
 set -e
-cd "$(dirname "$0")"
+# La raíz del proyecto está un nivel arriba de ejecutable/
+cd "$(dirname "$0")/.."
 
 if [ ! -x ".venv/bin/python" ]; then
   PY=""
@@ -21,6 +22,6 @@ if [ ! -f ".venv/.sg_listo" ]; then
   touch .venv/.sg_listo
 fi
 
-[ -f ".env" ] || cp .env.example .env
+[ -f ".env" ] || { [ -f ".env.example" ] && cp .env.example .env || true; }
 echo "[3/3] Iniciando SyntaxGuard ..."
-exec .venv/bin/python run.py "$@"
+exec .venv/bin/python ejecutable/run.py "$@"

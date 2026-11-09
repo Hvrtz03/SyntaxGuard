@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: GET /auth/me 200: restaura la sesión, guarda al usuario y usa credentials same-origin
+ok 1 - GET /auth/me 200: restaura la sesión, guarda al usuario y usa credentials same-origin
+  ---
+  duration_ms: 26.970377
+  type: 'test'
+  ...
+# Subtest: el token CSRF no está en el estado público ni en ninguna parte visible
+ok 2 - el token CSRF no está en el estado público ni en ninguna parte visible
+  ---
+  duration_ms: 0.60433
+  type: 'test'
+  ...
+# Subtest: restaurarSesion es de una sola solicitud aunque se llame varias veces a la vez
+ok 3 - restaurarSesion es de una sola solicitud aunque se llame varias veces a la vez
+  ---
+  duration_ms: 0.947688
+  type: 'test'
+  ...
+# Subtest: 401 no_autenticado → pantalla de acceso sin aviso; 401 sesion_expirada → con aviso
+ok 4 - 401 no_autenticado → pantalla de acceso sin aviso; 401 sesion_expirada → con aviso
+  ---
+  duration_ms: 1.67052
+  type: 'test'
+  ...
+# Subtest: error 500 o de red al arrancar → fase «error» (no se muestra el acceso ni la app)
+ok 5 - error 500 o de red al arrancar → fase «error» (no se muestra el acceso ni la app)
+  ---
+  duration_ms: 1.073931
+  type: 'test'
+  ...
+# Subtest: respuesta 200 mal formada de /auth/me → fase «error»
+ok 6 - respuesta 200 mal formada de /auth/me → fase «error»
+  ---
+  duration_ms: 0.546897
+  type: 'test'
+  ...
+# Subtest: comprobación silenciosa: un fallo de red no expulsa; un 401 sí
+ok 7 - comprobación silenciosa: un fallo de red no expulsa; un 401 sí
+  ---
+  duration_ms: 0.757447
+  type: 'test'
+  ...
+# Subtest: login correcto: JSON {usuario, contrasena}, sesión abierta y el token se envía en los POST privados (no en los GET)
+ok 8 - login correcto: JSON {usuario, contrasena}, sesión abierta y el token se envía en los POST privados (no en los GET)
+  ---
+  duration_ms: 0.832015
+  type: 'test'
+  ...
+# Subtest: DELETE y POST con cuerpo crudo también llevan X-CSRF-Token
+ok 9 - DELETE y POST con cuerpo crudo también llevan X-CSRF-Token
+  ---
+  duration_ms: 0.819566
+  type: 'test'
+  ...
+# Subtest: login 401 credenciales_invalidas: mensaje del contrato, NO cuenta como sesión expirada ni cancela nada
+ok 10 - login 401 credenciales_invalidas: mensaje del contrato, NO cuenta como sesión expirada ni cancela nada
+  ---
+  duration_ms: 1.143981
+  type: 'test'
+  ...
+# Subtest: login 429: reintentarEn y mensaje con la espera
+ok 11 - login 429: reintentarEn y mensaje con la espera
+  ---
+  duration_ms: 0.834398
+  type: 'test'
+  ...
+# Subtest: 429 con solo la cabecera Retry-After también informa la espera
+ok 12 - 429 con solo la cabecera Retry-After también informa la espera
+  ---
+  duration_ms: 0.586808
+  type: 'test'
+  ...
+# Subtest: registro 422 conserva `campos`; registro 409 marca el campo usuario
+ok 13 - registro 422 conserva `campos`; registro 409 marca el campo usuario
+  ---
+  duration_ms: 3.403689
+  type: 'test'
+  ...
+# Subtest: registro 201 abre sesión
+ok 14 - registro 201 abre sesión
+  ---
+  duration_ms: 0.436482
+  type: 'test'
+  ...
+# Subtest: 403 origen_no_permitido y 5xx en /auth/*: mensajes amables, sin detalles técnicos
+ok 15 - 403 origen_no_permitido y 5xx en /auth/*: mensajes amables, sin detalles técnicos
+  ---
+  duration_ms: 0.555134
+  type: 'test'
+  ...
+# Subtest: 200 mal formado en login no abre sesión
+ok 16 - 200 mal formado en login no abre sesión
+  ---
+  duration_ms: 0.389201
+  type: 'test'
+  ...
+# Subtest: 401 en un endpoint privado: borra la sesión y el token, avisa y cancela las peticiones pendientes
+ok 17 - 401 en un endpoint privado: borra la sesión y el token, avisa y cancela las peticiones pendientes
+  ---
+  duration_ms: 0.992206
+  type: 'test'
+  ...
+# Subtest: invalidarSesion es idempotente
+ok 18 - invalidarSesion es idempotente
+  ---
+  duration_ms: 0.244795
+  type: 'test'
+  ...
+# Subtest: 429 en un endpoint privado: no se reintenta y se informa la espera
+ok 19 - 429 en un endpoint privado: no se reintenta y se informa la espera
+  ---
+  duration_ms: 0.432486
+  type: 'test'
+  ...
+# Subtest: 403 csrf_invalido: una sola llamada a /auth/me y UN reintento con el token nuevo
+ok 20 - 403 csrf_invalido: una sola llamada a /auth/me y UN reintento con el token nuevo
+  ---
+  duration_ms: 0.659817
+  type: 'test'
+  ...
+# Subtest: si el reintento también da 403 no hay un tercer intento ni bucle
+ok 21 - si el reintento también da 403 no hay un tercer intento ni bucle
+  ---
+  duration_ms: 3.088151
+  type: 'test'
+  ...
+# Subtest: varias peticiones con 403 csrf_invalido simultáneas comparten UNA renovación
+ok 22 - varias peticiones con 403 csrf_invalido simultáneas comparten UNA renovación
+  ---
+  duration_ms: 2.758236
+  type: 'test'
+  ...
+# Subtest: 403 csrf_invalido y /auth/me responde 401: sesión terminada, sin reintento
+ok 23 - 403 csrf_invalido y /auth/me responde 401: sesión terminada, sin reintento
+  ---
+  duration_ms: 0.7434
+  type: 'test'
+  ...
+# Subtest: 403 csrf_invalido y /auth/me responde OTRA cuenta: no se reintenta y se marca cambio de usuario
+ok 24 - 403 csrf_invalido y /auth/me responde OTRA cuenta: no se reintenta y se marca cambio de usuario
+  ---
+  duration_ms: 0.686594
+  type: 'test'
+  ...
+# Subtest: /auth/me responde con otra cuenta al comprobar en segundo plano → cambio de usuario
+ok 25 - /auth/me responde con otra cuenta al comprobar en segundo plano → cambio de usuario
+  ---
+  duration_ms: 0.345078
+  type: 'test'
+  ...
+# Subtest: logout: POST con X-CSRF-Token, limpia usuario y token
+ok 26 - logout: POST con X-CSRF-Token, limpia usuario y token
+  ---
+  duration_ms: 0.538
+  type: 'test'
+  ...
+# Subtest: logout sin red: NO se simula el cierre (la sesión sigue viva en el servidor)
+ok 27 - logout sin red: NO se simula el cierre (la sesión sigue viva en el servidor)
+  ---
+  duration_ms: 0.439785
+  type: 'test'
+  ...
+# Subtest: logout con 403 csrf_invalido: renueva el token una vez y reintenta
+ok 28 - logout con 403 csrf_invalido: renueva el token una vez y reintenta
+  ---
+  duration_ms: 0.524246
+  type: 'test'
+  ...
+# Subtest: no se tocó localStorage, sessionStorage ni document (cookie) en ninguna prueba
+ok 29 - no se tocó localStorage, sessionStorage ni document (cookie) en ninguna prueba
+  ---
+  duration_ms: 0.08211
+  type: 'test'
+  ...
+# Subtest: la consola no recibió contraseñas ni tokens CSRF
+ok 30 - la consola no recibió contraseñas ni tokens CSRF
+  ---
+  duration_ms: 0.090714
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 165.61886

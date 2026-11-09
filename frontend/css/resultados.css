@@ -1,0 +1,108 @@
+/* ==========================================================================
+   SyntaxGuard · Resultados y evidencias (Fase 4)
+   Se carga DESPUÉS de analisis.css y solo añade o afina estilos del resultado.
+   Usa los tokens de tokens.css; no cambia ninguna regla de las fases anteriores.
+   ========================================================================== */
+
+/* ---- Distribución: escritorio en dos columnas; móvil en una sola, con el correo analizado tras la probabilidad ---- */
+.resultado {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas:
+    "banner banner"
+    "prob   lado"
+    "evid   lado"
+    "expl   lado";
+  gap: 20px;
+  align-items: start;
+}
+.resultado > * { min-width: 0; }
+.resultado__banner { grid-area: banner; }
+.resultado__prob { grid-area: prob; }
+.resultado__lado { grid-area: lado; display: flex; flex-direction: column; gap: 20px; }
+.resultado__evid { grid-area: evid; }
+.resultado__expl { grid-area: expl; }
+
+.espacio-s { height: 10px; }
+.espacio-m { height: 16px; }
+.tarjeta__subtitulo--sin-margen { margin: 0; }
+
+/* ---- Banner del veredicto ---- */
+.banner__cuerpo { flex: 1; min-width: 0; }
+.banner__regla { margin-top: 6px; font-size: 13px; color: var(--c-texto-2); }
+.banner__accion { flex: none; align-self: flex-start; }
+
+/* ---- Cifras clave (clasificación, umbral, distancia) ---- */
+.cifras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 18px 0 0; }
+.cifra { padding: 10px 12px; border: 1px solid var(--c-borde-suave); border-radius: var(--radio-m); background: var(--c-superficie-2); }
+.cifra dt { font-size: 12px; color: var(--c-texto-3); font-weight: 500; }
+.cifra dd { margin: 2px 0 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.cifra--spam { color: var(--c-spam); }
+.cifra--ok { color: var(--c-ok); }
+
+/* ---- Escala de nivel de riesgo ---- */
+.riesgo { margin-top: 20px; padding-top: 4px; border-top: 1px solid var(--c-borde-suave); }
+.riesgo .tarjeta__subtitulo { margin-top: 14px; }
+.escala { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.escala__tramo {
+  display: flex; flex-direction: column; gap: 2px; padding: 10px 10px 9px; border-radius: var(--radio-m);
+  border: 1px solid var(--c-borde); background: var(--c-superficie); color: var(--c-texto-3);
+  border-top-width: 4px;
+}
+.escala__nombre { font-weight: 600; font-size: 13px; color: var(--c-texto-2); }
+.escala__rango { font-size: 12px; }
+.escala__tramo--bajo { border-top-color: #22a05a; }
+.escala__tramo--moderado { border-top-color: #d9a010; }
+.escala__tramo--alto { border-top-color: #d9503b; }
+.escala__tramo--muy-alto { border-top-color: var(--c-spam); }
+/* El tramo activo se distingue por relleno, borde y texto (no solo por color) */
+.escala__tramo--activo { border-width: 2px; border-top-width: 4px; background: var(--c-superficie-2); box-shadow: 0 1px 3px rgba(16, 24, 40, 0.12); color: var(--c-texto); }
+.escala__tramo--activo .escala__nombre { color: var(--c-texto); font-weight: 700; }
+.escala__tramo--activo .escala__nombre::before { content: "● "; }
+.escala__tramo--bajo.escala__tramo--activo { border-color: #22a05a; background: var(--c-ok-fondo); }
+.escala__tramo--moderado.escala__tramo--activo { border-color: #d9a010; background: var(--c-aviso-fondo); }
+.escala__tramo--alto.escala__tramo--activo { border-color: #d9503b; background: var(--c-spam-fondo); }
+.escala__tramo--muy-alto.escala__tramo--activo { border-color: var(--c-spam); background: var(--c-spam-fondo); }
+.riesgo__texto { margin-top: 12px; color: var(--c-texto-2); font-size: 13px; }
+
+/* ---- Evidencias con pestañas ---- */
+.pestanas--ev { display: flex; flex-wrap: wrap; width: 100%; margin-bottom: 16px; }
+.pestanas--ev .pestana { flex: 1 1 auto; justify-content: center; }
+[role="tabpanel"][hidden] { display: none; }
+[role="tabpanel"]:focus-visible { outline: 2px solid var(--c-primario); outline-offset: 4px; border-radius: 6px; }
+.chips-fila { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tabla-datos { display: grid; grid-template-columns: minmax(150px, 220px) minmax(0, 1fr); gap: 8px 16px; margin: 0; }
+.tabla-datos dt { color: var(--c-texto-3); font-weight: 500; }
+.tabla-datos dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.enlaces__dato { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.enlaces__dominio { font-size: 12px; color: var(--c-texto-3); overflow-wrap: anywhere; }
+
+/* ---- Explicación (acordeón) ---- */
+.acordeon { border: 1px solid var(--c-borde); border-radius: var(--radio-m); overflow: hidden; }
+.acordeon__item + .acordeon__item { border-top: 1px solid var(--c-borde); }
+.acordeon__item > summary { cursor: pointer; padding: 13px 16px; font-weight: 600; color: var(--c-texto); background: var(--c-superficie); }
+.acordeon__item > summary:hover { background: var(--c-superficie-2); }
+.acordeon__item > summary:focus-visible { outline: 2px solid var(--c-primario); outline-offset: -2px; }
+.acordeon__item[open] > summary { background: var(--c-superficie-2); }
+.acordeon__cuerpo { padding: 4px 16px 16px; color: var(--c-texto-2); }
+.acordeon__cuerpo p { margin: 10px 0 0; }
+.lista-limites { margin: 10px 0 0; padding-left: 18px; }
+.lista-limites li + li { margin-top: 6px; }
+.metricas-mini .tabla-datos { margin-top: 10px; }
+.metricas-mini .spinner { vertical-align: middle; margin-right: 6px; }
+
+/* ---- Adaptación ---- */
+@media (max-width: 1000px) {
+  .resultado {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "banner" "prob" "lado" "evid" "expl";
+  }
+}
+@media (max-width: 640px) {
+  .banner__accion { align-self: stretch; }
+  .cifras { grid-template-columns: minmax(0, 1fr); }
+  .escala { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tabla-datos { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .tabla-datos dd { margin-bottom: 10px; }
+  .pestanas--ev .pestana { flex: 1 1 45%; }
+}

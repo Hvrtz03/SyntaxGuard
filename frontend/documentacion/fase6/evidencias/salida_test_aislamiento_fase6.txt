@@ -1,0 +1,15 @@
+# test_aislamiento_fase6.py  (2026-11-08T03:59:52Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] Preparación: ana creó 6 análisis y un lote; beto 6 y otro lote; carla no creó nada
+[OK] Historial privado: cada usuario lista solo lo suyo, con cualquier filtro (búsqueda, clasificación, tipo, lote)
+[OK] IDOR en detalle: probados los 12 ids reales con los 3 usuarios; los ajenos dan 404 idéntico a los inexistentes
+[OK] Eliminación individual y múltiple: solo afecta a registros del propio usuario; los ids ajenos se ignoran
+[OK] Retroalimentación privada: no se puede opinar, listar ni ver opiniones sobre análisis ajenos
+[OK] Lotes y análisis masivos: un lote ajeno es indistinguible de uno inexistente; no se pueden añadir correos a lotes de otro
+[OK] Errores de archivos: pertenecen al usuario que subió el archivo; nadie más los ve
+[OK] Estadísticas privadas: cada usuario ve únicamente sus conteos (y carla, ceros reales)
+[OK] CSV privado: cada usuario exporta solo lo suyo (también con filtros por lote o texto)
+[OK] El user_id sale solo de la sesión: user_id/usuario_id/owner en cuerpo, URL o cabeceras se ignoran
+[OK] Las sesiones son independientes entre usuarios; el token CSRF de un usuario no sirve para otro
+
+11 grupos de comprobaciones superados (API real y modelo real).
+EXIT=0

@@ -1,0 +1,68 @@
+/* ==========================================================================
+   SyntaxGuard · Fase 6B: pantalla de acceso (iniciar sesión / crear cuenta) y cuenta activa en la barra superior.
+   Usa los tokens y componentes existentes (tokens.css, componentes.css, gestion.css); no introduce colores nuevos.
+   ========================================================================== */
+
+/* ---- Sin sesión: el menú lateral (todo es privado) no se muestra y el contenido ocupa todo el ancho ---- */
+.app[data-sesion]:not([data-sesion="autenticado"]) { grid-template-columns: minmax(0, 1fr); }
+.app[data-sesion]:not([data-sesion="autenticado"]) .lateral { display: none; }
+.app[data-sesion]:not([data-sesion="autenticado"]) .contenido { margin-inline: auto; }
+
+/* ---- Tarjeta de acceso ---- */
+.acceso { display: flex; justify-content: center; padding: 8px 0 24px; }
+.acceso__tarjeta { width: min(440px, 100%); display: flex; flex-direction: column; gap: 4px; padding: 28px 28px 24px; }
+.acceso__marca { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: var(--c-primario); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.acceso__titulo { font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em; outline: none; }
+.acceso__pestanas { display: flex; margin: 16px 0 14px; }
+.acceso__pestanas .pestana { flex: 1; justify-content: center; margin: 0; }
+.acceso__aviso:empty { display: none; }
+.acceso__aviso { margin-bottom: 14px; }
+.acceso__aviso .aviso span { min-width: 0; overflow-wrap: anywhere; }
+.aviso--ok { background: var(--c-ok-fondo); border-color: var(--c-ok-borde); color: var(--c-ok); }
+
+/* ---- Formulario ---- */
+.acceso__form { display: flex; flex-direction: column; gap: 14px; }
+.acceso__campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.acceso__campo[hidden], .acceso__ayuda[hidden], .campo-error[hidden] { display: none; }
+.acceso__etiqueta { font-weight: 600; font-size: 13px; color: var(--c-texto-2); }
+.acceso .campo-in { width: 100%; min-height: 44px; font-size: 16px; } /* 16 px evita el zoom automático de iOS al enfocar */
+.acceso .campo-in[aria-invalid="true"] { border-color: var(--c-spam); }
+.campo-error { font-size: 13px; color: var(--c-spam); overflow-wrap: anywhere; }
+
+.campo-clave { position: relative; display: flex; }
+.campo-in--clave { padding-right: 48px; }
+.campo-ojo {
+  position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 44px; height: 100%;
+  border: 0; border-radius: 0 8px 8px 0; background: transparent; color: var(--c-texto-3); cursor: pointer;
+}
+.campo-ojo:hover { color: var(--c-texto); }
+
+.acceso__ayuda { margin: 0; padding: 12px 14px 12px 30px; border-radius: var(--radio-m); background: var(--c-superficie-2); color: var(--c-texto-2); font-size: 12.5px; }
+.acceso__ayuda li + li { margin-top: 4px; }
+
+.acceso__enviar { min-height: 44px; margin-top: 2px; }
+.spinner--claro { border-color: rgba(255, 255, 255, 0.45); border-top-color: #fff; }
+
+.acceso__cambio { margin-top: 16px; text-align: center; color: var(--c-texto-3); }
+.enlace-boton {
+  padding: 4px 2px; border: 0; background: none; color: var(--c-primario); font: inherit; font-weight: 600;
+  text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.enlace-boton:hover { color: var(--c-primario-hover); }
+.enlace-boton:focus-visible, .campo-ojo:focus-visible { outline: 2px solid var(--c-primario); outline-offset: 2px; }
+
+/* ---- Cuenta activa en la barra superior ---- */
+.topbar__sesion { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.topbar__sesion:empty { display: none; }
+.chip--usuario { max-width: 100%; }
+.chip--usuario .chip__texto { max-width: 16ch; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- Pantallas pequeñas ---- */
+@media (max-width: 860px) {
+  .topbar__acciones { flex-wrap: wrap; gap: 8px 10px; }
+  .topbar__sesion { gap: 8px; }
+  .acceso__tarjeta { padding: 22px 18px 20px; }
+}
+@media (max-width: 480px) {
+  .topbar__separador { display: none; }
+}

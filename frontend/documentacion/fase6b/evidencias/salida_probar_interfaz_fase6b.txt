@@ -1,0 +1,62 @@
+Modo: BACKEND 6A REAL + DETECTOR SIMULADO
+Servidor: http://127.0.0.1:51733  ·  base de datos temporal: /tmp/sg_fase6b_jafk69t2
+
+[OK ] 1.1 Sin sesión se muestra la pantalla de acceso
+[OK ] 1.2 Sin sesión no se muestra el menú ni vistas privadas
+[OK ] 1.3 Al cargar: exactamente UNA consulta GET /auth/me
+[OK ] 1.4 Ninguna petición privada antes de conocer la sesión
+[OK ] 2.1 Se alterna a «Crear cuenta» sin recargar
+[OK ] 2.2 Campos vacíos: mensajes locales y sin petición
+[OK ] 2.3 Contraseñas distintas: aviso local
+[OK ] 2.4 422 del servidor: mensaje junto a cada campo (campos del contrato)
+[OK ] 2.5 Mostrar/ocultar contraseña
+[OK ] 2.6 Registro válido: sesión abierta, menú y cuenta activa visibles
+[OK ] 2.7 El registro se envió una sola vez
+[OK ] 2.8 Cookie de sesión HttpOnly y SameSite=Strict (la fija el servidor)
+[OK ] 3.1 Análisis individual funciona con sesión (extraer, predecir, historial = 200)
+[OK ] 3.2 Todo POST privado lleva X-CSRF-Token
+[OK ] 3.3 Los GET no llevan X-CSRF-Token
+[OK ] 3.4 El resultado muestra SPAM (detector simulado)
+[OK ] 3.5 Historial privado del usuario muestra su análisis
+[OK ] 4.1 Recarga: la sesión se restaura con UNA consulta /auth/me
+[OK ] 4.2 Se conserva la ruta (#/historial)
+[OK ] 4.3 Ninguna petición privada se envió antes de /auth/me
+[OK ] 4.4 document.cookie no expone la cookie de sesión
+[OK ] 4.5 localStorage y sessionStorage vacíos
+[OK ] 5.1 403 csrf_invalido: renueva con UNA llamada a /auth/me y reintenta UNA vez
+[OK ] 6.1 401 → pantalla de acceso con «Tu sesión expiró»
+[OK ] 6.2 Sin sesión no queda menú, cuenta ni vista privada
+[OK ] 6.3 Misma cuenta: vuelve a la ruta donde estaba (#/historial), sin recargar
+[OK ] 6.4 Se conserva lo que la persona estaba escribiendo (contrato §9.1)
+[OK ] 6.5 Otra cuenta tras expirar: la interfaz se recarga (memoria limpia)
+[OK ] 6.6 La cuenta nueva muestra su propio nombre
+[OK ] 6.7 El historial de la cuenta B no contiene los análisis de la cuenta A
+[OK ] 6.8 El borrador de A no aparece en la cuenta B
+[OK ] 7.1 Cerrar sesión: vuelve al acceso con «Cerraste sesión»
+[OK ] 7.2 POST /auth/logout con X-CSRF-Token, una sola vez
+[OK ] 7.3 La sesión quedó invalidada EN EL SERVIDOR (la cookie copiada ya no sirve)
+[OK ] 7.4 El navegador borró la cookie
+[OK ] 7.5 El aviso del hash se limpió de la URL
+[OK ] 8.1 409 usuario duplicado: mensaje en el campo usuario
+[OK ] 8.2 401 credenciales incorrectas: mensaje del contrato y contraseña vaciada
+[OK ] 8.3 429: botón deshabilitado con cuenta regresiva y mensaje
+[OK ] 8.4 Durante el bloqueo no se envían más intentos (ni con Enter)
+[OK ] 8.5 Al terminar la espera el botón se habilita de nuevo
+[OK ] 9.1 Masivo: tras el primer 401 no se envía ningún archivo más (y no se enviaron los 4)
+      (POST /analisis/archivo: 2 de 4; respuestas [200, 401])
+[OK ] 9.2 Masivo: la sesión terminada lleva al acceso
+[OK ] 9.3 Masivo: tras volver a entrar se informa que el análisis se detuvo por la sesión
+[OK ] 10.1 Móvil: acceso sin desbordamiento horizontal
+[OK ] 10.2 Móvil: campos de 16 px (sin zoom en iOS) y objetivo táctil ≥ 44 px
+[OK ] 10.3 Móvil: registro sin desbordamiento
+[OK ] 10.4 Móvil: app con sesión sin desbordamiento
+[OK ] 10.5 Móvil: «Cerrar sesión» visible dentro de la pantalla
+[OK ] 10.6 Móvil: cerrar sesión devuelve al acceso
+[OK ] 11.1 Sin errores de JavaScript (pageerror) en toda la prueba
+[OK ] 11.2 La consola del navegador no contiene contraseñas
+[OK ] 11.3 La consola no contiene el token CSRF ni el valor de la cookie
+[OK ] 11.4 El token CSRF no está en localStorage / sessionStorage / document.cookie / DOM
+[OK ] 11.5 localStorage y sessionStorage vacíos al final
+[OK ] 11.6 Ningún campo de contraseña sigue con valor tras iniciar sesión
+
+56/56 comprobaciones correctas · modo: BACKEND 6A REAL + DETECTOR SIMULADO

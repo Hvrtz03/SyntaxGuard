@@ -1,0 +1,5 @@
+# smoke_test.py  (2026-11-08T03:59:32Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] Detector: predicción con formato correcto
+[OK] API: /salud, /predecir, /metricas
+Prueba de humo superada.
+EXIT=0

@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+import auth_helper  # noqa: E402  (Fase 6A: base temporal y claves de prueba; /predecir exige sesión)
 from fastapi.testclient import TestClient  # noqa: E402
 
 from app.detector import METRICS_PATH  # noqa: E402
@@ -33,6 +34,7 @@ def main():
     print("[OK] Endpoints originales registrados: /salud, /metricas, /predecir")
 
     with TestClient(app) as c:
+        auth_helper.iniciar_sesion(c)  # Fase 6A
         # ---- Endpoints originales: mismo comportamiento ----
         r = c.get("/salud")
         comprobar(r.status_code == 200 and r.json() == {"estado": "ok", "modelo_cargado": True}, "/salud cambió")

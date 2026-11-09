@@ -1,0 +1,208 @@
+SyntaxGuard - pruebas con el MODELO REAL
+Fecha: 06/11/2026 14:27:41.49
+
+
+==== 1. Regresion Fase 1: smoke_test.py (detector y API)
+[OK] Detector: predicción con formato correcto
+[OK] API: /salud, /predecir, /metricas
+Prueba de humo superada.
+RESULTADO: OK
+
+==== 2. Regresion Fase 2/3: smoke_test_correo.py (extraccion de correos)
+[OK] Constantes coherentes con detector.py y schemas.py
+[OK] Endpoints originales intactos: /salud, /metricas (0,9533 Â· 175/4/10/111), /predecir, y la interfaz en /
+[OK] Multipart: cabeceras, texto, html, enlaces y adjunto ignorado
+[OK] Correo solo HTML: el texto se obtiene del HTML y se avisa
+[OK] Codificaciones: UTF-8, ISO-8859-1, Windows-1252, base64 y charset desconocido
+[OK] Texto y HTML pegados sin cabeceras
+[OK] HTML malicioso: solo texto, sin javascript: y sin ejecutar nada
+[OK] Validaciones: vacÃ­o, binario, extensiÃ³n, tipo de contenido, sin texto y >5 MB (con y sin Content-Length)
+[OK] Nombre de archivo saneado (sin rutas) y con acentos
+[OK] Texto largo: se recorta al lÃ­mite del esquema y se avisa del lÃ­mite del detector
+[OK] Extraer -> /predecir con el modelo real: es_spam=True Â· probabilidad=0.8333
+
+Correos reales del corpus:
+     easy_ham/0001.ea7e79dâ€¦  carpeta=ham   modelo=LEGÃTIMO  P(spam)=0.0633
+     easy_ham/0213.ee51a59â€¦  carpeta=ham   modelo=LEGÃTIMO  P(spam)=0.1133
+     easy_ham/0425.bc356b2â€¦  carpeta=ham   modelo=LEGÃTIMO  P(spam)=0.17
+     spam/00001.7848ddâ€¦  carpeta=spam  modelo=SPAM      P(spam)=1.0
+     spam/00042.3e934bâ€¦  carpeta=spam  modelo=SPAM      P(spam)=0.9833
+     spam/00083.c1891câ€¦  carpeta=spam  modelo=SPAM      P(spam)=0.9867
+     spam_2/00001.317e78â€¦  carpeta=spam  modelo=SPAM      P(spam)=0.91
+     spam_2/00117.9f0ba9â€¦  carpeta=spam  modelo=SPAM      P(spam)=0.96
+     spam_2/00233.3c3228â€¦  carpeta=spam  modelo=SPAM      P(spam)=0.9967
+
+     Resumen: {'ok': 35, 'sin_texto(422)': 1, 'paridad_ok': 35, 'paridad_distinta': 0, 'predicciones': 9}
+[OK] Correos reales: 35 extraÃ­dos; 100.0% idÃ©nticos al formato de entrenamiento
+
+Prueba del backend de la Fase 3 superada.
+RESULTADO: OK
+
+==== 3. Regresion: smoke_test_frontend.py
+[OK] Endpoints originales registrados: /salud, /metricas, /predecir
+[OK] /salud, /metricas y /predecir responden igual que antes
+[OK] GET / sirve la interfaz
+[OK] 100 archivos estáticos servidos con el tipo MIME correcto
+[OK] Todas las importaciones entre módulos JS existen
+[OK] /static no permite salir de la carpeta frontend/
+Prueba de humo del frontend superada.
+RESULTADO: OK
+
+==== 4. Regresion Fase 4: smoke_test_fase4.py
+[OK] detector.py, schemas.py, metricas.json y requirements.txt son idénticos a los de la Fase 3
+[--] No hay línea base de clasificador.pkl. Para vigilarlo: python scripts/smoke_test_fase4.py --guardar-linea-base (ANTES de instalar la Fase 4).
+[OK] metricas.json conserva las cifras reales de prueba (0,9533 · 0,9652 · 0,9174 · 0,9407 · 175/4/10/111)
+[OK] Archivos nuevos presentes, index.html enlaza resultados.css y todas las importaciones JS existen
+[OK] El código de resultados no usa innerHTML/eval y no crea enlaces <a>
+[OK] Umbral 0,5 y resultado.js sin llamadas de análisis (no duplica solicitudes)
+[OK] /metricas intacto y los archivos nuevos se sirven con el tipo MIME correcto
+Prueba de humo de la Fase 4 superada.
+RESULTADO: OK
+
+==== 5. Fase 5: almacen y servicios (detector simulado SOLO para esta prueba de datos)
+[OK] La base de datos se crea (tablas lotes, analisis, retroalimentacion)
+[OK] Registro individual guardado con sus datos y solo los dominios de los enlaces
+[OK] D1: la base no contiene el texto, el HTML ni las URL completas
+[OK] Validaciones: es_spam incoherente con el umbral, probabilidad fuera de rango, rasgos mal formados, cuerpo vacÃ­o
+[OK] 12 correos reales del corpus (6 spam, 6 legÃ­timos) analizados y guardados en un lote
+[OK] Los errores individuales (vacÃ­o, binario, extensiÃ³n, sin texto, fallo del detector, tamaÃ±o) se guardan sin detener el lote
+[OK] D7: .txt aceptado con las mismas validaciones; sin modelo -> 503; lote inexistente -> 404
+[OK] Resumen del lote correcto: 20 procesados, 10 SPAM, 4 LEGÃTIMOS, 6 errores
+[OK] Filtros por clasificaciÃ³n (SPAM / LEGÃTIMO / error) coherentes entre sÃ­
+[OK] BÃºsqueda por nombre y asunto; comodines y comillas tratados como texto (sin inyecciÃ³n SQL)
+[OK] Filtro por rango de fechas (hora local) y validaciÃ³n de parÃ¡metros
+[OK] Filtros por tipo y lote; paginaciÃ³n
+[OK] Detalle de un anÃ¡lisis con rasgos; id inexistente -> 404
+[OK] RetroalimentaciÃ³n: varias entradas por anÃ¡lisis, la mÃ¡s reciente primero, con fecha y hora; validaciones
+[OK] EstadÃ­sticas de uso: solo registros reales (errores aparte), sin porcentajes inventados cuando no hay datos
+[OK] CSV: BOM UTF-8, columnas, filtros, y celdas que empiezan con = + - @ neutralizadas
+[OK] EliminaciÃ³n de uno y de varios registros (con su retroalimentaciÃ³n); validaciones
+[OK] Persistencia: un proceso nuevo lee los mismos 19 registros de la base de datos
+[OK] La capa de datos no importa ni duplica el detector
+[OK] Archivos protegidos idÃ©nticos (SHA-256): detector, schemas, modelo, mÃ©tricas, requirements y dataset
+[OK] metricas.json conserva 0.9533 / 0.9652 / 0.9174 / 0.9407 y la matriz 175/4/10/111
+
+21 grupos de comprobaciones superados (detector SIMULADO; no es una prueba del modelo real).
+RESULTADO: OK
+
+==== 6. Fase 5: API completa con el MODELO REAL
+[OK] Archivos protegidos idÃ©nticos (SHA-256): detector, schemas, modelo, mÃ©tricas, dataset y requirements
+[OK] Endpoints originales /salud, /metricas y /predecir con el modelo real, sin cambios
+[OK] CORS: solo se permiten localhost y 127.0.0.1; un sitio externo no recibe permiso
+[OK] El frontend (index, CSS y las 6 vistas) se sirve correctamente
+[OK] Individual: /correo/extraer â†’ /predecir â†’ /historial guardado (n.Âº 1; P(spam) 1.0)
+[OK] Validaciones de POST /historial (es_spam incoherente con P(spam), cuerpo vacÃ­o, resultado incompleto)
+[OK] Masivo: 12 correos reales; el resultado coincide EXACTAMENTE con /correo/extraer + /predecir (12/12; 340 ms por correo incluyendo la verificaciÃ³n)
+[OK] Masivo: errores individuales (vacÃ­o, binario, extensiÃ³n, sin cuerpo, >5 MB) se guardan como registros y no detienen el lote; .txt aceptado
+[OK] Masivo: cuerpo JSON â†’ 415; lote inexistente â†’ 404
+[OK] Resumen del lote: 18 procesados Â· 7 SPAM Â· 6 LEGÃTIMOS Â· 5 errores (aparte)
+[OK] Historial: listado, filtros (resultado, tipo, lote, texto), paginaciÃ³n, validaciones y 404
+[OK] CSV: 200, text/csv, adjunto, BOM UTF-8, filas = registros, filtros y validaciÃ³n
+[OK] RetroalimentaciÃ³n: varias entradas ligadas al anÃ¡lisis, la mÃ¡s reciente primero, validaciones; no altera el modelo ni las mÃ©tricas
+[OK] EstadÃ­sticas de uso: 14 analizados (errores aparte: 5), sin mezclar mÃ©tricas del modelo
+[OK] EliminaciÃ³n de uno y de varios (la retroalimentaciÃ³n se borra con su anÃ¡lisis)
+[OK] Persistencia: tras reiniciar la aplicaciÃ³n el historial conserva sus 15 registros
+[OK] Archivos protegidos siguen idÃ©nticos despuÃ©s de todas las pruebas
+
+17 grupos de comprobaciones superados con el MODELO REAL.
+RESULTADO: OK
+
+==== 7. Fase 5: interfaz en Chromium con el MODELO REAL
+[OK]    1. El menú lateral tiene 6 secciones, incluida «Análisis masivo»
+[OK]    1. El indicador de la API muestra «Modelo cargado»
+[OK]    1. La sección Análisis está activa al abrir
+[OK]    2. La vista previa muestra el asunto extraído
+[OK]    3. Resultado: muestra SPAM o LEGÍTIMO
+[OK]    3. Resultado: probabilidad con punto decimal (es-MX) y «%»
+[OK]    3. Resultado: chip «Guardado» en el historial
+[OK]    3. Evidencias: las 4 pestañas (rasgos, texto, enlaces, estructura) abren su panel
+[OK]    3. Evidencias: el enlace acortador se muestra en la pestaña Enlaces
+[OK]    3. El detalle guardado muestra el dominio del enlace
+[OK]    3. D1: el detalle NO muestra la URL completa ni el cuerpo
+[OK]    10. Al volver a Análisis se conserva el resultado (estado entre secciones)
+[OK]    4. Archivos agregados: se listan los 3 .eml y se ignora el .jpg
+[OK]    4. Cada fila muestra nombre y tamaño
+[OK]    4. Los archivos repetidos no se duplican
+[OK]    4. «Quitar» elimina un archivo antes de iniciar
+[OK]    4. «Vaciar lista» deja la lista vacía
+[OK]    4. Arrastrar y soltar agrega archivos
+[OK]    4. Carpeta completa: 33 archivos .eml/.txt (con subcarpeta) y el .jpg ignorado
+[OK]    4. La carpeta incluyó la subcarpeta
+[OK]    5. Se muestra el progreso del análisis
+[OK]    5. El análisis continúa/termina al cambiar de sección y se conserva el estado
+[OK]    5. Resumen: 33 procesados = SPAM + LEGÍTIMOS + errores
+[OK]    5. Resumen: los errores individuales (vacío y binario) no detienen el lote
+[OK]    5. Resumen: porcentajes coherentes con los conteos
+[OK]    5. Los errores se identifican por archivo con su motivo
+[OK]    5. Cada resultado individual muestra SPAM/LEGÍTIMO y P(spam)
+[OK]    5. La API tiene los 33 registros del lote guardados
+[OK]    5. GET /lotes/{id} coincide con el resumen de la pantalla
+[OK]    5. Filtro SPAM
+[OK]    5. Filtro LEGÍTIMO
+[OK]    5. Filtro Con error
+[OK]    5. Búsqueda por nombre
+[OK]    5. Búsqueda por asunto
+[OK]    5. Búsqueda sin coincidencias muestra aviso
+[OK]    5. Detalle individual (modal) con P(spam), rasgos y dominios
+[OK]    5. El modal se cierra con Esc
+[OK]    5. Exportar CSV del lote: 200, BOM UTF-8 y 33 filas + encabezado
+[OK]    5. El botón de CSV inicia una descarga real
+[OK]    5. Cancelar: aparece el aviso de cancelación
+[OK]    5. Cancelar: quedan archivos sin procesar y los procesados suman lo analizado
+[OK]    5. Cancelar: lo mostrado coincide con lo guardado (sin registros fantasma)
+[OK]    6. El historial muestra los registros reales (coincide con la API)
+[OK]    6. Paginación: 25 por página
+[OK]    6. Siguiente página muestra el resto
+[OK]    6. Filtro SPAM coincide con la API
+[OK]    6. Filtro SPAM: todas las filas son SPAM
+[OK]    6. Filtro LEGÍTIMO coincide con la API
+[OK]    6. Filtro Con error coincide con la API
+[OK]    6. «Limpiar filtros» restablece
+[OK]    6. Filtro por tipo individual
+[OK]    6. Búsqueda por nombre
+[OK]    6. Búsqueda por asunto
+[OK]    6. Filtro por fecha sin resultados muestra estado vacío
+[OK]    6. Filtro por fecha (hoy) muestra los de hoy
+[OK]    6. Exportar CSV del historial completo
+[OK]    6. Eliminar un registro (con confirmación) lo borra de la base
+[OK]    6. Eliminar varios registros seleccionados
+[OK]    7. Abrir un análisis anterior por su dirección (#/historial/<id>)
+[OK]    7. Un análisis inexistente muestra un mensaje claro
+[OK]    8. Rendimiento del modelo: 0.9533 / 0.9652 / 0.9174 / 0.9407 (de metricas.json)
+[OK]    8. Matriz de confusión: VN 175, FP 4, FN 10, VP 111
+[OK]    8. Conjunto de validación etiquetado y distinto
+[OK]    8. Estadísticas de uso coinciden con los registros reales
+[OK]    8. Las estadísticas de uso no mezclan métricas del modelo
+[OK]    8. Gráfico por día y distribución presentes
+[OK]    9. Se llega con el análisis ya seleccionado
+[OK]    9. Guardar está desactivado hasta elegir una opinión
+[OK]    9. La retroalimentación se guarda y aparece con fecha y hora
+[OK]    9. Varias entradas por análisis; la más reciente se marca primero
+[OK]    9. En la base: 2 retroalimentaciones ligadas al análisis y la última es «de acuerdo»
+[OK]    9. Se puede elegir otro análisis de la lista (queda seleccionado y se muestra su resumen)
+[OK]    9. Buscar en la lista de análisis funciona
+[OK]    10. Acerca de: explica qué es, cómo funciona, tecnologías, limitaciones y definiciones
+[OK]    10. Acerca de: no inventa una categoría de phishing
+[OK]    Todas las secciones están implementadas (ninguna «En construcción»)
+[OK]    Persistencia: tras reiniciar el servidor el historial sigue igual
+[OK]    Persistencia: la retroalimentación sigue ligada al análisis
+[OK]    Responsivo móvil 390 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo tableta 768 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo escritorio 1280 px: ninguna sección desborda horizontalmente
+[OK]    Responsivo móvil: el menú es accesible y «Elegir archivos» visible
+[OK]    Sin errores de JavaScript ni de consola en todo el recorrido
+[OK]    Sin respuestas HTTP de error inesperadas (4xx/5xx) durante el recorrido
+
+84/84 comprobaciones superadas
+RESULTADO: OK
+
+==== 8. Concurrencia del detector (informativa)
+Correos reales utilizables: 40
+Secuencial: 5.73 s (143 ms por correo). Determinista entre pasadas: True
+2 hilos, ronda 1: 5.02 s (x1.14) Â· diferencias: 0 Â· errores: 0
+2 hilos, ronda 2: 5.04 s (x1.14) Â· diferencias: 0 Â· errores: 0
+4 hilos, ronda 1: 5.07 s (x1.13) Â· diferencias: 0 Â· errores: 0
+4 hilos, ronda 2: 4.99 s (x1.15) Â· diferencias: 0 Â· errores: 0
+
+SIN diferencias ni errores en estas pruebas. No es una garantÃ­a (la prueba es una muestra), pero la concurrencia podrÃ­a evaluarse con mÃ¡s correos y rondas.
+RESULTADO: OK

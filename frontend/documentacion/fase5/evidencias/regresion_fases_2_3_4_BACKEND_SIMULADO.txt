@@ -1,0 +1,11 @@
+REGRESION de las fases 2, 3 y 4 ejecutada contra servidor_prueba_fase5.py (backend SIMULADO: detector simulado; extraccion y base de datos reales).
+NO es una prueba con el modelo real ni con FastAPI.
+
+### FASE 2
+Total: 83 comprobaciones · 82 correctas · 1 con falla
+### FASE 3
+94/94 pruebas superadas.
+### FASE 4
+TOTAL: 145/145 pruebas superadas
+
+Unico fallo (Fase 2): 'GET /docs sigue funcionando' -> 404: el servidor simulado no ofrece /docs (FastAPI real si). Pendiente de comprobar en Windows.

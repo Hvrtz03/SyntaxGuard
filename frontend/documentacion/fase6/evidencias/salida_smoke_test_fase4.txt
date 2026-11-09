@@ -1,0 +1,10 @@
+# smoke_test_fase4.py  (2026-11-08T03:59:42Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] detector.py, schemas.py, metricas.json y requirements.txt son idénticos a los de la Fase 3
+[--] No hay línea base de clasificador.pkl. Para vigilarlo: python scripts/smoke_test_fase4.py --guardar-linea-base (ANTES de instalar la Fase 4).
+[OK] metricas.json conserva las cifras reales de prueba (0,9533 · 0,9652 · 0,9174 · 0,9407 · 175/4/10/111)
+[OK] Archivos nuevos presentes, index.html enlaza resultados.css y todas las importaciones JS existen
+[OK] El código de resultados no usa innerHTML/eval y no crea enlaces <a>
+[OK] Umbral 0,5 y resultado.js sin llamadas de análisis (no duplica solicitudes)
+[OK] /metricas intacto y los archivos nuevos se sirven con el tipo MIME correcto
+Prueba de humo de la Fase 4 superada.
+EXIT=0

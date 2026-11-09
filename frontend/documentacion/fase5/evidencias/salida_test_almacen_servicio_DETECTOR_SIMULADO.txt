@@ -1,0 +1,23 @@
+[OK] La base de datos se crea (tablas lotes, analisis, retroalimentacion)
+[OK] Registro individual guardado con sus datos y solo los dominios de los enlaces
+[OK] D1: la base no contiene el texto, el HTML ni las URL completas
+[OK] Validaciones: es_spam incoherente con el umbral, probabilidad fuera de rango, rasgos mal formados, cuerpo vacío
+[OK] 12 correos reales del corpus (6 spam, 6 legítimos) analizados y guardados en un lote
+[OK] Los errores individuales (vacío, binario, extensión, sin texto, fallo del detector, tamaño) se guardan sin detener el lote
+[OK] D7: .txt aceptado con las mismas validaciones; sin modelo -> 503; lote inexistente -> 404
+[OK] Resumen del lote correcto: 20 procesados, 10 SPAM, 4 LEGÍTIMOS, 6 errores
+[OK] Filtros por clasificación (SPAM / LEGÍTIMO / error) coherentes entre sí
+[OK] Búsqueda por nombre y asunto; comodines y comillas tratados como texto (sin inyección SQL)
+[OK] Filtro por rango de fechas (hora local) y validación de parámetros
+[OK] Filtros por tipo y lote; paginación
+[OK] Detalle de un análisis con rasgos; id inexistente -> 404
+[OK] Retroalimentación: varias entradas por análisis, la más reciente primero, con fecha y hora; validaciones
+[OK] Estadísticas de uso: solo registros reales (errores aparte), sin porcentajes inventados cuando no hay datos
+[OK] CSV: BOM UTF-8, columnas, filtros, y celdas que empiezan con = + - @ neutralizadas
+[OK] Eliminación de uno y de varios registros (con su retroalimentación); validaciones
+[OK] Persistencia: un proceso nuevo lee los mismos 19 registros de la base de datos
+[OK] La capa de datos no importa ni duplica el detector
+[OK] Archivos protegidos idénticos (SHA-256): detector, schemas, modelo, métricas, requirements y dataset
+[OK] metricas.json conserva 0.9533 / 0.9652 / 0.9174 / 0.9407 y la matriz 175/4/10/111
+
+21 grupos de comprobaciones superados (detector SIMULADO; no es una prueba del modelo real).

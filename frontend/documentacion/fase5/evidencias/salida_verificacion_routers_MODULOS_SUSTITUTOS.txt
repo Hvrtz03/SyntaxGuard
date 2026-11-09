@@ -1,0 +1,2 @@
+12 rutas registradas: ['DELETE /historial/{analisis_id}', 'GET /estadisticas/uso', 'GET /historial', 'GET /historial/exportar.csv', 'GET /historial/{analisis_id}', 'GET /lotes/{lote_id}', 'GET /retroalimentacion', 'POST /analisis/archivo', 'POST /historial', 'POST /historial/eliminar', 'POST /lotes', 'POST /retroalimentacion']
+Routers reales: lógica de todas las rutas verificada con módulos sustitutos de fastapi/pydantic

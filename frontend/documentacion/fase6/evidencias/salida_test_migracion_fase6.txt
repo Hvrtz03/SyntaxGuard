@@ -1,0 +1,12 @@
+# test_migracion_fase6.py  (2026-11-08T03:59:55Z, Python 3.12.3, dependencias de requirements.txt, modelo real)
+[OK] La capa de datos exige user_id (ausente, None, 0, negativo, booleano, texto o decimal -> error): no hay forma de consultar sin propietario
+[OK] Migración Fase 5 -> 6A: tablas, user_id (NULL), índices y user_version; los 6 análisis, 2 lotes y 3 opiniones quedan idénticos y sin propietario
+[OK] Respaldo automático (.pre_fase6.bak) con el esquema y los datos originales, creado ANTES de modificar
+[OK] Idempotente: ejecutar la migración 3 veces más no cambia el esquema, los datos ni el respaldo
+[OK] Base nueva: se crea directamente con el esquema de la Fase 6A, sin respaldo
+[OK] Atómica: si algo falla a mitad de la migración se revierte todo; al reintentar se completa sin pérdida de datos
+[OK] Registros antiguos: se conservan con user_id = NULL, NUNCA se asignan al primer usuario y ningún usuario puede verlos, exportarlos, contarlos, opinar, eliminarlos ni añadirlos a sus lotes
+[OK] Si se elimina un usuario, sus análisis y sesiones se eliminan en cascada (no quedan datos huérfanos)
+
+8 grupos de comprobaciones superados.
+EXIT=0
